@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#f7e1a6",
+                        "secondary": "#6d5d2f",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#254188",
+                        "surface-bright": "#f9f9f9",
+                        "surface-tint": "#735c00",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-primary-container": "#554300",
+                        "error-container": "#ffdad6",
+                        "outline": "#7f7663",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary-fixed": "#241a00",
+                        "outline-variant": "#d0c5af",
+                        "on-secondary-container": "#736334",
+                        "on-surface-variant": "#4d4635",
+                        "tertiary": "#415ba4",
+                        "tertiary-container": "#97b0ff",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "background": "#f9f9f9",
+                        "inverse-primary": "#e9c349",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed": "#00174b",
+                        "surface-container": "#eeeeee",
+                        "surface": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary": "#ffffff",
+                        "primary": "#735c00",
+                        "on-secondary-fixed-variant": "#544519",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed": "#f7e1a6",
+                        "primary-container": "#d4af37",
+                        "secondary-fixed-dim": "#dac58d",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed-dim": "#e9c349"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .primary-gradient-btn {
+            background: linear-gradient(45deg, #735c00, #d4af37);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(115, 92, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-stone-50/80 backdrop-blur-xl shadow-sm shadow-stone-200/50">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-stone-900">
+                Chhaya Photo Studio
+            </div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="dashboard.html">Home</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="services.html">Services</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
+<a class="text-yellow-700 border-b border-yellow-700/30 pb-1 font-medium" href="contact.html">Contact</a>
+</div>
+<button class="primary-gradient-btn text-on-primary px-6 py-2.5 rounded shadow-sm hover:opacity-90 transition-all font-medium">
+                Book a Session
+            </button>
+</nav>
+</header>
+<main>
+<!-- Contact Hero Section -->
+<section class="relative pt-24 pb-16 px-8 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div>
+<h1 class="font-headline text-5xl md:text-7xl text-on-surface leading-tight tracking-tight mb-8">
+                        Let's capture your <br/>
+<span class="italic text-primary">lasting legacy.</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed mb-12">
+                        Whether it's a quiet family moment or a grand celebration, we're here to curate your memories with artistic precision and warmth.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-full text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h3 class="font-headline text-xl mb-1">Our Studio</h3>
+<p class="text-on-surface-variant">42 Artistry Lane, Heritage District<br/>New Delhi, 110001</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-full text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h3 class="font-headline text-xl mb-1">Email Us</h3>
+<p class="text-on-surface-variant">hello@chhayaphotostudio.com<br/>bookings@chhayaphotostudio.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden shadow-2xl shadow-on-surface/5">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" data-alt="Minimalist sun-drenched photography studio interior with white walls, vintage camera on a wooden table, and soft shadows casting through a large window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV6lECMK4HvOIXOLCE-_fl-iHyR6zkavM-_1SBOd0oV8IxNRciDSIuCYcXBFXNI3SQ92vPjlpL82IQadmaoAWwz85wei8awMrx_QwYbnW21M7waohht9jzTTjYwMqYksY3iGnXkwK5cupppZ2FIo9WzSdKtyJMOkqSiVJUcNxdbYAExtZzKL1-bs_ujKU4QZrLmp6szkrndPu6D4cdh8JLpHkRLpskFCsOnKk2SYSM_9iyvLDFJujUqagIV5l2kJRizAB_4NABalQ"/>
+</div>
+<!-- Decorative Floating Element -->
+<div class="absolute -bottom-8 -left-8 p-8 bg-surface-container-lowest rounded-lg shadow-xl max-w-[240px] hidden md:block">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" data-weight="fill">camera_roll</span>
+<p class="font-headline italic text-lg leading-snug">"Light is the brush, and life is the canvas."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Form and Map Section -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid lg:grid-cols-12 gap-16">
+<!-- Contact Form Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-10 md:p-16 rounded-xl shadow-sm">
+<h2 class="font-headline text-3xl mb-10">Send a Message</h2>
+<form class="space-y-10">
+<div class="grid md:grid-cols-2 gap-10">
+<div class="relative group">
+<input class="peer w-full bg-transparent border-b border-outline/30 focus:border-primary-container transition-all py-4 px-0 outline-none placeholder-transparent" id="name" name="name" placeholder=" " type="text"/>
+<label class="absolute left-0 top-4 text-on-surface-variant transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest font-label" for="name">Full Name</label>
+</div>
+<div class="relative group">
+<input class="peer w-full bg-transparent border-b border-outline/30 focus:border-primary-container transition-all py-4 px-0 outline-none placeholder-transparent" id="email" name="email" placeholder=" " type="email"/>
+<label class="absolute left-0 top-4 text-on-surface-variant transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest font-label" for="email">Email Address</label>
+</div>
+</div>
+<div class="relative group">
+<select class="peer w-full bg-transparent border-b border-outline/30 focus:border-primary-container transition-all py-4 px-0 outline-none appearance-none font-label uppercase tracking-widest text-on-surface-variant text-sm" id="service" name="service">
+<option disabled="" selected="" value="">Select Inquire Type</option>
+<option value="portrait">Portrait Session</option>
+<option value="wedding">Wedding Coverage</option>
+<option value="commercial">Commercial Shoot</option>
+<option value="other">General Inquiry</option>
+</select>
+<div class="absolute right-0 top-4 pointer-events-none">
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<div class="relative group">
+<textarea class="peer w-full bg-transparent border-b border-outline/30 focus:border-primary-container transition-all py-4 px-0 outline-none placeholder-transparent resize-none" id="message" name="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-0 top-4 text-on-surface-variant transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest font-label" for="message">The Details</label>
+</div>
+<div class="pt-6">
+<button class="primary-gradient-btn text-on-primary px-12 py-4 rounded font-label uppercase tracking-widest text-sm hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-3" type="submit">
+                                    Send Inquiry
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Integrated Map Column -->
+<div class="lg:col-span-5 flex flex-col h-full">
+<div class="flex-grow rounded-xl overflow-hidden shadow-sm relative group bg-surface-container">
+<div class="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+<img class="w-full h-full object-cover grayscale contrast-75 brightness-110" data-alt="Stylized artistic map showing a metropolitan city area with soft beige and gold tones for landmarks and streets" data-location="New Delhi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT2UcoL8qiipdK5xOg39GKlIVa6VSxKZFAmJgCkNlr8b4fRpczzHnLruMQc-xfqB7zq5N1tCboHSIs4D61luBZ7pBv2HkfVf6XO-1EjSm0nqOZfSwv1hguYyeH6AKvuzwsMtI4W67AOWk0MDGoVFAPHbKNqf5VV7mUCPse17YMHHQW5loTpn18eyTQuZkihETkGNSmLgLVMIpHjSk9k7a4bXdrmEuWbAVUcYu59ApCMLpmYRr5Oo3aTtiZoQ4fWUzK6U6cZqtWD3c"/>
+<!-- Custom Map Pin Overlay -->
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<div class="relative">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-4 border-surface shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary-container" data-weight="fill">camera</span>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-on-surface text-surface text-xs px-3 py-1 rounded-full font-label tracking-widest">
+                                        VISIT OUR STUDIO
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Secondary Contact Row -->
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-highest p-6 rounded-lg text-center">
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">WhatsApp</p>
+<p class="font-medium">+91 98765 43210</p>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-lg text-center">
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">Instagram</p>
+<p class="font-medium">@chhayastudio</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Journal Teaser (Asymmetric Layout) -->
+<section class="py-32 px-8 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="flex flex-col md:flex-row items-center gap-20">
+<div class="w-full md:w-1/3 order-2 md:order-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Close-up of a vintage lens reflecting a golden hour sunset, extreme detail on the glass and metallic elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZUjoWgGA0v1zAUJMaPmrvH_j3lfL6yREWte9daBZdplYawQOF2LtqBcIEGPGTP3iK0H6P2qETs8qNdhADlBJGZSAZ61kC2zwpVLpqvijN7TMwym9ZiVVmNc5kOLpsZdaBdcQ5NsBMyKSH3uCZbXm7S2PCklInFKTxm1MibF23chOQKoHxZzbGasAa1GG9mqWSuxuIU29iaHVHqH1JV0krUJEfpWWmnhIqDakca2YioolH9leAZFqfEhfMt82-Xr_ZElUoisUj6U"/>
+</div>
+</div>
+<div class="w-full md:w-2/3 order-1 md:order-2">
+<h2 class="font-headline text-4xl md:text-5xl mb-8 leading-tight">Read our latest <br/><span class="italic text-primary">Capture Stories.</span></h2>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl leading-relaxed">We believe every session has a soul. Explore our journal for behind-the-scenes insights, lighting techniques, and the philosophy behind our visual curation.</p>
+<a class="font-headline italic text-xl text-primary flex items-center gap-4 group" href="#">
+                        Explore the Journal
+                        <span class="h-px w-20 bg-primary group-hover:w-32 transition-all duration-500"></span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 py-20 px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto border-t border-stone-200/50 pt-12">
+<div class="text-lg font-serif text-stone-800">
+                Chhaya Photo Studio
+            </div>
+<div class="flex gap-8">
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Instagram</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Pinterest</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Vimeo</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Journal</a>
+</div>
+<div class="font-sans text-sm tracking-widest uppercase text-stone-500">
+                © 2024 Chhaya Photo Studio. All rights reserved.
+            </div>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/yournumber" target="_blank">
+<div class="relative flex items-center justify-center">
+<!-- Ripple Effect -->
+<div class="absolute inset-0 bg-primary-container/20 rounded-full scale-150 animate-pulse"></div>
+<!-- Main Button -->
+<div class="relative bg-surface-container-lowest text-primary p-4 rounded-full shadow-2xl shadow-on-surface/10 border border-outline-variant/10 flex items-center gap-3 hover:scale-105 transition-transform duration-300 active:scale-95">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-2xl" data-weight="fill">chat</span>
+</div>
+<span class="pr-2 font-label text-xs uppercase tracking-widest text-on-surface font-semibold hidden md:block">Chat with us</span>
+</div>
+</div>
+</a>
+<script>
+    (function () {
+        const currentPage = (window.location.pathname.split("/").pop() || "dashboard.html").toLowerCase();
+        const navLinks = document.querySelectorAll('nav .hidden.md\\:flex a[href$=".html"]');
+        if (!navLinks.length) return;
+
+        navLinks.forEach((link) => {
+            const targetPage = (link.getAttribute("href") || "").split("/").pop().toLowerCase();
+            const isActive = targetPage === currentPage;
+
+            link.classList.remove(
+                "text-yellow-700",
+                "dark:text-yellow-500",
+                "border-b",
+                "border-yellow-700/30",
+                "pb-1",
+                "text-stone-600",
+                "dark:text-stone-400",
+                "font-medium"
+            );
+
+            if (isActive) {
+                link.classList.add("text-yellow-700", "dark:text-yellow-500", "border-b", "border-yellow-700/30", "pb-1");
+            } else {
+                link.classList.add("text-stone-600", "dark:text-stone-400", "font-medium");
+            }
+        });
+    })();
+</script>
+</body></html>

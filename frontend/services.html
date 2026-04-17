@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "secondary-container": "#f7e1a6",
+                    "secondary": "#6d5d2f",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#254188",
+                    "surface-bright": "#f9f9f9",
+                    "surface-tint": "#735c00",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-fixed": "#dbe1ff",
+                    "on-primary-container": "#554300",
+                    "error-container": "#ffdad6",
+                    "outline": "#7f7663",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed": "#241a00",
+                    "outline-variant": "#d0c5af",
+                    "on-secondary-container": "#736334",
+                    "on-surface-variant": "#4d4635",
+                    "tertiary": "#415ba4",
+                    "tertiary-container": "#97b0ff",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "background": "#f9f9f9",
+                    "inverse-primary": "#e9c349",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-fixed": "#00174b",
+                    "surface-container": "#eeeeee",
+                    "surface": "#f9f9f9",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-secondary": "#ffffff",
+                    "primary": "#735c00",
+                    "on-secondary-fixed-variant": "#544519",
+                    "surface-variant": "#e2e2e2",
+                    "secondary-fixed": "#f7e1a6",
+                    "primary-container": "#d4af37",
+                    "secondary-fixed-dim": "#dac58d",
+                    "on-background": "#1a1c1c",
+                    "primary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-italic { font-family: 'Noto Serif'; font-style: italic; }
+        .gallery-shadow { box-shadow: 0 12px 48px -12px rgba(26, 28, 28, 0.04); }
+        .glass-nav { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+        .primary-gradient { background: linear-gradient(45deg, #735C00, #D4AF37); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-stone-50/80 backdrop-blur-xl shadow-sm shadow-stone-200/50">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-stone-900">Chhaya Photo Studio</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="dashboard.html">Home</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
+<a class="text-yellow-700 border-b border-yellow-700/30 pb-1 font-medium" href="services.html">Services</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
+<a class="text-stone-600 font-medium hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<button class="primary-gradient text-on-primary px-8 py-3 rounded-md font-medium text-sm tracking-wide transition-transform active:scale-95">
+                Book a Session
+            </button>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-8 pb-32">
+<!-- Hero Section -->
+<section class="py-24 md:py-32 flex flex-col items-center text-center">
+<span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-6">The Art of Preservation</span>
+<h1 class="font-headline text-5xl md:text-7xl text-on-surface max-w-4xl leading-[1.1] mb-8">
+                Capturing the <span class="serif-italic">essence</span> of your most cherished chapters.
+            </h1>
+<p class="font-body text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                We believe photography is more than a service; it is a curation of heritage. Each session is approached with architectural precision and a storyteller’s heart.
+            </p>
+</section>
+<!-- Services Bento-inspired Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Service Card 1 -->
+<div class="md:col-span-8 group">
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden gallery-shadow h-full flex flex-col md:flex-row transition-all duration-500 hover:translate-y-[-4px]">
+<div class="md:w-1/2 h-80 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700" data-alt="soft focus close up of a bridal veil catching morning light in a minimal white room with elegant shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC4el6bdiUIUb7SMQNzD-Z5Kg0FpckNbskRatvVtE7Vxj_wXtSNHcwURFH0sKHbmxl8pUZR_x86kkkPxWvgMQHy09FSwDVSs4A39Gb6Hx3zJEmmplncAQbUTHQ8uBAFGcNjOwke6Bl9c3-nzUuK8Bg5GlQFA_Qgscuy50YIKjq1pL777d-ulNKWbllfi9MGepNTkv2QrYYVUl_TRVx7hWEgWY9ljPgjgsFdwX9x_1XLak1aAih_SzacT50wmfHA89nDg2JFSevqAs"/>
+</div>
+<div class="md:w-1/2 p-12 flex flex-col justify-center">
+<span class="text-primary-container font-medium text-xs tracking-widest uppercase mb-4">Editorial Heritage</span>
+<h2 class="font-headline text-3xl mb-6">Heirloom Weddings</h2>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            A cinematic documentation of your union. We focus on the quiet, unscripted moments—the brush of a hand, the catch in a breath—rendered with the timeless quality of fine art film.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-sm text-on-surface">Full day narrative coverage</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="history_edu">history_edu</span>
+<span class="text-sm text-on-surface">Curated fine-art album design</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Service Card 2 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden gallery-shadow h-full flex flex-col transition-all duration-500 hover:translate-y-[-4px]">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="high fashion editorial portrait of a woman in neutral tones with dramatic soft lighting against a textured plaster wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsN9uz8VkY550xiVuCQjyZvHeMY-t_fuTnvMdtyIXvt7AzmP4Akrihp8VQzXJJ6dVydQyXG7ZJ8cRAVJ7_KNHLv6pzlYZaeUtDgMOg5gxeVeMi7EhTErM6L3e4v-0ZR2lMdJkLA_-c7nurt_PBIrt1AUnl88kWIxthA7OzfUSBh9FWrLZSshXTYdI9yre9n-OdNHNmhIusSXVqSKToCGxRrjOi11j1GgEUNbhBixhVGMcHk0Y1W3WcnxLtPvctWapsZvYKmTWs9Hw"/>
+</div>
+<div class="p-10">
+<span class="text-primary-container font-medium text-xs tracking-widest uppercase mb-4">Individual Spirit</span>
+<h2 class="font-headline text-2xl mb-4">Legacy Portraits</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Beyond the headshot. We create soul-baring portraits that serve as a visual biography, capturing your presence with dignity and artistic depth.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Grid Card 3 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface-container-low rounded-lg p-10 h-full flex flex-col justify-between transition-all duration-500 hover:bg-surface-container-lowest hover:gallery-shadow">
+<div>
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="ink_highlighter">ink_highlighter</span>
+</div>
+<h2 class="font-headline text-2xl mb-4">Maternity &amp; Infancy</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Soft, ethereal sessions that celebrate the transition into parenthood. We focus on the organic beauty of new life and the architecture of a changing silhouette.
+                        </p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<span class="text-primary text-xs font-semibold tracking-widest uppercase italic">Inquire for availability</span>
+</div>
+</div>
+</div>
+<!-- Wide Service Card 4 -->
+<div class="md:col-span-8 group">
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden gallery-shadow h-full flex flex-col md:flex-row-reverse transition-all duration-500 hover:translate-y-[-4px]">
+<div class="md:w-1/2 h-80 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="minimalist architectural space with large windows and warm natural light casting long shadows on hardwood floors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUxd8VuVgWE0kmB3HviOuOILHmxi6J-Z9lZagNoz5BlZfZcQRGFQcjJFX5PLvaigpD-b7UmdyWGnoBHhZ3ML-gQ6g43DIE2nw5WHrOryUNqHVY6AsQLigGc563HzF1qoGVn9x5NqTYdLtGD4KCktezkDshGUc1ABoRENAqdqS8-SWT2gIVGhkkaeYJ1wV-_iPX6sTJyOpxGihHxswPYcxU9MCCb5lY7kWJdr5aPfxDQDG-nW50DNCXmdA6PmRYLdR5vQGrUei6S8M"/>
+</div>
+<div class="md:w-1/2 p-12 flex flex-col justify-center">
+<span class="text-primary-container font-medium text-xs tracking-widest uppercase mb-4">Modern Space</span>
+<h2 class="font-headline text-3xl mb-6">Interior &amp; Lifestyle</h2>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            Capturing the dialogue between light and living spaces. For architects, designers, and brands looking to showcase the soul of their creations through professional imagery.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all duration-300" href="#">
+                            Explore the Journal
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Philosophical Section / Quote -->
+<section class="mt-32 py-24 bg-surface-container-low rounded-lg text-center px-8">
+<div class="max-w-3xl mx-auto">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-8" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline text-3xl md:text-4xl italic text-on-surface leading-snug mb-8">
+                    "A photograph is a pause button on life. At Chhaya, we ensure that pause is as beautiful as the melody it belongs to."
+                </blockquote>
+<div class="w-12 h-px bg-primary mx-auto mb-4"></div>
+<cite class="font-label text-xs tracking-[0.2em] uppercase text-on-surface-variant not-italic">The Curator's Philosophy</cite>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 w-full py-20 px-8 border-t border-stone-200/50">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="text-lg font-serif text-stone-800">Chhaya Photo Studio</div>
+<div class="flex gap-12">
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Instagram</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Pinterest</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Vimeo</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-yellow-700 transition-colors duration-300" href="#">Journal</a>
+</div>
+<div class="font-sans text-sm tracking-widest uppercase text-stone-500">
+                © 2024 Chhaya Photo Studio. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+    (function () {
+        const currentPage = (window.location.pathname.split("/").pop() || "dashboard.html").toLowerCase();
+        const navLinks = document.querySelectorAll('nav .hidden.md\\:flex a[href$=".html"]');
+        if (!navLinks.length) return;
+
+        navLinks.forEach((link) => {
+            const targetPage = (link.getAttribute("href") || "").split("/").pop().toLowerCase();
+            const isActive = targetPage === currentPage;
+
+            link.classList.remove(
+                "text-yellow-700",
+                "dark:text-yellow-500",
+                "border-b",
+                "border-yellow-700/30",
+                "pb-1",
+                "text-stone-600",
+                "dark:text-stone-400",
+                "font-medium"
+            );
+
+            if (isActive) {
+                link.classList.add("text-yellow-700", "dark:text-yellow-500", "border-b", "border-yellow-700/30", "pb-1");
+            } else {
+                link.classList.add("text-stone-600", "dark:text-stone-400", "font-medium");
+            }
+        });
+    })();
+</script>
+</body></html>
