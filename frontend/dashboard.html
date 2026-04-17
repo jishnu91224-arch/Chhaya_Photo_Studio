@@ -100,9 +100,14 @@
 <a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
 <a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg font-medium shadow-lg shadow-primary/10 active:opacity-80 transition-all">
+<div class="flex items-center gap-3">
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg font-medium shadow-lg shadow-primary/10 active:opacity-80 transition-all" data-book-session-trigger="true">
                 Book a Session
             </button>
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg font-medium shadow-lg shadow-primary/10 active:opacity-80 transition-all" data-general-inquiry-trigger="true">
+                General Inquiry
+            </button>
+</div>
 </div>
 </nav>
 <main>
@@ -118,12 +123,15 @@
                         A curated photography experience designed to preserve life's most precious stories with elegance and soul.
                     </p>
 <div class="flex flex-wrap gap-6">
-<button class="hero-gradient text-on-primary px-10 py-5 rounded-lg text-lg font-medium shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" data-book-session-trigger="true">
                             Book a Session
                         </button>
-<button class="bg-surface-container-lowest text-primary px-10 py-5 rounded-lg text-lg font-medium hover:bg-white transition-colors">
-                            View Portfolio
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" data-general-inquiry-trigger="true">
+                            General Inquiry
                         </button>
+<a class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform inline-block" href="portfolio.html">
+                            View Portfolio
+                        </a>
 </div>
 </div>
 <!-- Signature Gallery Masthead -->
@@ -168,7 +176,7 @@
 <p class="text-on-surface-variant leading-relaxed mb-8">
                             Premium artistry should be accessible. We offer transparent, tiered pricing designed to fit your unique vision and budget without compromise.
                         </p>
-<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="#">Explore Packages</a>
+<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="pricing.html">Explore Packages</a>
 </div>
 <!-- Fast -->
 <div class="bg-surface-container-low p-12 rounded-sm group hover:bg-surface-container-high transition-colors duration-500 md:mt-12">
@@ -179,7 +187,7 @@
 <p class="text-on-surface-variant leading-relaxed mb-8">
                             We value your excitement. Receive your curated, professionally edited gallery within 7 business days, delivered through our private digital portal.
                         </p>
-<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="#">Our Process</a>
+<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="portfolio.html#team-process">Our Process</a>
 </div>
 <!-- Professional -->
 <div class="bg-surface-container-low p-12 rounded-sm group hover:bg-surface-container-high transition-colors duration-500 md:mt-24">
@@ -190,7 +198,7 @@
 <p class="text-on-surface-variant leading-relaxed mb-8">
                             Equipped with world-class gear and a decade of experience, our team ensures every technical detail is perfect while you focus on the moment.
                         </p>
-<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="#">Meet the Team</a>
+<a class="font-headline italic text-primary border-b border-primary/20 pb-1 group-hover:border-primary transition-colors" href="contact.html">Meet the Team</a>
 </div>
 </div>
 </div>
@@ -216,6 +224,38 @@
 </div>
 </section>
 </main>
+<!-- Booking Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/50" data-booking-modal="">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl p-8 md:p-10 relative">
+<button aria-label="Close booking form" class="absolute right-4 top-4 text-on-surface-variant hover:text-on-surface" data-booking-close="" type="button">
+                ✕
+            </button>
+<h2 class="font-headline text-3xl mb-8">Book a Session</h2>
+<form class="space-y-6" data-booking-form="">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="phone" placeholder="Phone Number" type="tel"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="date" required="" type="date"/>
+</div>
+<select class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="serviceType" required="">
+<option disabled="" selected="" value="">Select Service Type</option>
+<option value="Portrait Session">Portrait Session</option>
+<option value="Wedding Coverage">Wedding Coverage</option>
+<option value="Commercial Shoot">Commercial Shoot</option>
+</select>
+<textarea class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container resize-none" name="message" placeholder="Tell us about your session" rows="4"></textarea>
+<div class="flex items-center justify-between gap-4">
+<p class="text-sm text-on-surface-variant" data-booking-status=""></p>
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg font-medium disabled:opacity-60" data-booking-submit="" type="submit">
+                        Send Booking
+                    </button>
+</div>
+</form>
+</div>
+</div>
 <!-- Footer -->
 <footer class="w-full py-20 px-8 bg-stone-100 border-t border-stone-200/50">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
@@ -256,6 +296,91 @@
                 link.classList.add("text-yellow-700", "dark:text-yellow-500", "border-b", "border-yellow-700/30", "pb-1");
             } else {
                 link.classList.add("text-stone-600", "dark:text-stone-400", "font-medium");
+            }
+        });
+    })();
+
+    (function () {
+        const API_BASE = window.CHHAYA_API_BASE || "http://localhost:3000";
+        const WHATSAPP_NUMBER = "918799830109";
+        const modal = document.querySelector("[data-booking-modal]");
+        const openButtons = document.querySelectorAll("[data-book-session-trigger]");
+        const inquiryButtons = document.querySelectorAll("[data-general-inquiry-trigger]");
+        const closeButton = document.querySelector("[data-booking-close]");
+        const form = document.querySelector("[data-booking-form]");
+        const statusEl = document.querySelector("[data-booking-status]");
+        const submitButton = document.querySelector("[data-booking-submit]");
+
+        if (!modal || !form || !statusEl || !submitButton || !openButtons.length) return;
+
+        const openModal = function () {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        };
+
+        const closeModal = function () {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            statusEl.textContent = "";
+        };
+
+        openButtons.forEach((button) => {
+            button.addEventListener("click", openModal);
+        });
+
+        inquiryButtons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
+                const popup = window.open(whatsappUrl, "_blank");
+                if (!popup) {
+                    window.location.href = whatsappUrl;
+                }
+            });
+        });
+
+        if (closeButton) {
+            closeButton.addEventListener("click", closeModal);
+        }
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) closeModal();
+        });
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const payload = {
+                name: String(formData.get("name") || "").trim(),
+                email: String(formData.get("email") || "").trim(),
+                phone: String(formData.get("phone") || "").trim(),
+                date: String(formData.get("date") || "").trim(),
+                serviceType: String(formData.get("serviceType") || "").trim(),
+                message: String(formData.get("message") || "").trim(),
+            };
+
+            statusEl.textContent = "Sending booking request...";
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE}/api/bookings`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.error || "Failed to create booking.");
+                }
+
+                form.reset();
+                statusEl.textContent = "Booking submitted successfully. We will contact you soon.";
+                setTimeout(closeModal, 1200);
+            } catch (error) {
+                statusEl.textContent = error.message || "Something went wrong. Please try again.";
+            } finally {
+                submitButton.disabled = false;
             }
         });
     })();
