@@ -100,6 +100,46 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
         }
+        html {
+            scroll-behavior: smooth;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            transition: opacity 700ms ease, transform 700ms ease;
+            will-change: opacity, transform;
+        }
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .process-card {
+            transition: transform 280ms ease, box-shadow 280ms ease;
+        }
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px -18px rgba(26, 28, 28, 0.35);
+        }
+        .placeholder-tile {
+            position: relative;
+            overflow: hidden;
+            transition: transform 280ms ease, filter 280ms ease;
+        }
+        .placeholder-tile::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.25), transparent 80%);
+            transform: translateX(-130%);
+            transition: transform 650ms ease;
+        }
+        .placeholder-tile:hover {
+            transform: translateY(-4px) scale(1.02);
+            filter: brightness(1.03);
+        }
+        .placeholder-tile:hover::after {
+            transform: translateX(130%);
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
@@ -114,7 +154,7 @@
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-full font-medium tracking-tight hover:opacity-90 active:scale-95 transition-all">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-full font-medium tracking-tight hover:opacity-90 active:scale-95 transition-all" data-book-session-trigger="true">
                 Book a Session
             </button>
 </nav>
@@ -213,18 +253,136 @@
 </button>
 </div>
 </section>
+<!-- Team Process and Signature Categories -->
+<section class="px-8 pb-32 max-w-screen-2xl mx-auto space-y-20">
+<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="team-process">
+<div class="max-w-4xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">How The Team Works</p>
+<h2 class="font-headline text-4xl md:text-5xl mb-6">Our Process, From First Call To Final Delivery</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                    Every project follows a clear collaborative flow so you know exactly what happens at each stage. This section is your process overview and can be expanded with behind-the-scenes images anytime.
+                </p>
+</div>
+<div class="grid md:grid-cols-4 gap-6 mt-10">
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 80ms;">
+<p class="font-semibold mb-2">01. Discovery</p>
+<p class="text-sm text-on-surface-variant">We discuss goals, style references, timeline, and outcomes.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 160ms;">
+<p class="font-semibold mb-2">02. Planning</p>
+<p class="text-sm text-on-surface-variant">Our team maps moodboards, shot list, schedule, and logistics.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 240ms;">
+<p class="font-semibold mb-2">03. Capture Day</p>
+<p class="text-sm text-on-surface-variant">Photographers and support crew execute coverage seamlessly.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 320ms;">
+<p class="font-semibold mb-2">04. Edit and Delivery</p>
+<p class="text-sm text-on-surface-variant">Curated edits, quality checks, and private gallery handover.</p>
+</div>
+</div>
+</section>
+
+<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="events-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Events Coverage</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">Corporate, Cultural, and Private Events</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Add your best event moments here: keynote highlights, stage shots, audience candids, decor details, and after-event storytelling frames.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 4</div>
+</div>
+</div>
+</section>
+
+<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="weddings-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Weddings</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">Ceremony To Celebration, Captured With Emotion</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            This block is ready for your wedding storytelling sequence: rituals, vows, family portraits, couple frames, and reception energy.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 4</div>
+</div>
+</div>
+</section>
+
+<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="fine-art-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Fine Art</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">The Finest Art Frames Curated By The Team</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Reserve this section for your most premium artistic work. You can later replace placeholders with hero portraits, editorial sets, and signature prints.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 4</div>
+</div>
+</div>
+</section>
+</section>
 <!-- Newsletter / CTA -->
 <section class="bg-surface-container-low py-32 px-8">
 <div class="max-w-screen-xl mx-auto text-center">
 <h2 class="text-4xl md:text-5xl font-headline italic mb-8 text-on-surface">Stay in the light.</h2>
 <p class="text-on-surface-variant font-light mb-12 max-w-lg mx-auto">Join our private list to receive seasonal updates, editorial journals, and first access to booking sessions.</p>
-<form class="max-w-md mx-auto flex gap-4">
-<input class="flex-1 bg-transparent border-b border-outline focus:border-primary-container outline-none py-3 px-2 font-light transition-all" placeholder="Your Email Address" type="email"/>
-<button class="bg-primary text-on-primary px-8 py-3 rounded-sm font-medium hover:bg-surface-tint transition-colors">Join</button>
+<form class="max-w-md mx-auto flex gap-4" data-newsletter-form="">
+<input class="flex-1 bg-transparent border-b border-outline focus:border-primary-container outline-none py-3 px-2 font-light transition-all" name="email" placeholder="Your Email Address" required="" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-sm font-medium hover:bg-surface-tint transition-colors" type="submit">Join</button>
 </form>
+<p class="text-sm text-on-surface-variant mt-4" data-newsletter-status=""></p>
 </div>
 </section>
 </main>
+<!-- Booking Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/50" data-booking-modal="">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl p-8 md:p-10 relative">
+<button aria-label="Close booking form" class="absolute right-4 top-4 text-on-surface-variant hover:text-on-surface" data-booking-close="" type="button">
+                ✕
+            </button>
+<h2 class="font-headline text-3xl mb-8">Book a Session</h2>
+<form class="space-y-6" data-booking-form="">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="phone" placeholder="Phone Number" type="tel"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="date" required="" type="date"/>
+</div>
+<select class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="serviceType" required="">
+<option disabled="" selected="" value="">Select Service Type</option>
+<option value="Portrait Session">Portrait Session</option>
+<option value="Wedding Coverage">Wedding Coverage</option>
+<option value="Commercial Shoot">Commercial Shoot</option>
+<option value="General Inquiry">General Inquiry</option>
+</select>
+<textarea class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container resize-none" name="message" placeholder="Tell us about your session" rows="4"></textarea>
+<div class="flex items-center justify-between gap-4">
+<p class="text-sm text-on-surface-variant" data-booking-status=""></p>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg font-medium disabled:opacity-60" data-booking-submit="" type="submit">
+                        Send Booking
+                    </button>
+</div>
+</form>
+</div>
+</div>
 <!-- Footer -->
 <footer class="w-full py-20 px-8 bg-stone-100 dark:bg-stone-950">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto border-t border-stone-200/50 pt-12">
@@ -266,6 +424,118 @@
             } else {
                 link.classList.add("text-stone-600", "dark:text-stone-400", "font-medium");
             }
+        });
+    })();
+
+    (function () {
+        const API_BASE = window.CHHAYA_API_BASE || "http://localhost:3000";
+        const modal = document.querySelector("[data-booking-modal]");
+        const openButtons = document.querySelectorAll("[data-book-session-trigger]");
+        const closeButton = document.querySelector("[data-booking-close]");
+        const form = document.querySelector("[data-booking-form]");
+        const statusEl = document.querySelector("[data-booking-status]");
+        const submitButton = document.querySelector("[data-booking-submit]");
+
+        if (!modal || !form || !statusEl || !submitButton || !openButtons.length) return;
+
+        const openModal = function () {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        };
+
+        const closeModal = function () {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            statusEl.textContent = "";
+        };
+
+        openButtons.forEach((button) => button.addEventListener("click", openModal));
+        if (closeButton) closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) closeModal();
+        });
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            statusEl.textContent = "Sending booking request...";
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+            const payload = {
+                name: String(formData.get("name") || "").trim(),
+                email: String(formData.get("email") || "").trim(),
+                phone: String(formData.get("phone") || "").trim(),
+                date: String(formData.get("date") || "").trim(),
+                serviceType: String(formData.get("serviceType") || "").trim(),
+                message: String(formData.get("message") || "").trim(),
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/bookings`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Failed to create booking.");
+                form.reset();
+                statusEl.textContent = "Booking submitted successfully. We will contact you soon.";
+                setTimeout(closeModal, 1200);
+            } catch (error) {
+                statusEl.textContent = error.message || "Something went wrong. Please try again.";
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
+    })();
+
+    (function () {
+        const API_BASE = window.CHHAYA_API_BASE || "http://localhost:3000";
+        const form = document.querySelector("[data-newsletter-form]");
+        const statusEl = document.querySelector("[data-newsletter-status]");
+        if (!form || !statusEl) return;
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            statusEl.textContent = "Submitting...";
+
+            const formData = new FormData(form);
+            const payload = { email: String(formData.get("email") || "").trim() };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/newsletter`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Unable to subscribe right now.");
+                form.reset();
+                statusEl.textContent = result.message || "Subscribed successfully.";
+            } catch (error) {
+                statusEl.textContent = error.message || "Something went wrong. Please try again.";
+            }
+        });
+    })();
+
+    (function () {
+        const revealItems = document.querySelectorAll(".reveal");
+        if (!revealItems.length) return;
+
+        const observer = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+
+        revealItems.forEach(function (item) {
+            observer.observe(item);
         });
     })();
 </script>

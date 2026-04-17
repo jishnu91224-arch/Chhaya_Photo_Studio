@@ -1,0 +1,27 @@
+{
+  "name": "chhaya_photo_studio",
+  "version": "1.0.0",
+  "description": "Next.js backend for Chhaya Photo Studio",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jishnu91224-arch/Chhaya_Photo_Studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jishnu91224-arch/Chhaya_Photo_Studio/issues"
+  },
+  "homepage": "https://github.com/jishnu91224-arch/Chhaya_Photo_Studio#readme",
+  "dependencies": {
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}
