@@ -11,53 +11,79 @@
         darkMode: "class",
         theme: {
           extend: {
-            "colors": {
+                        "colors": {
+                    "stone": {
+                        "50": "#151100",
+                        "100": "#1d1700",
+                        "200": "#2f2400",
+                        "300": "#453400",
+                        "400": "#5c4500",
+                        "500": "#755600",
+                        "600": "#916a00",
+                        "700": "#b08100",
+                        "800": "#d19a00",
+                        "900": "#f5b500",
+                        "950": "#ffcd33"
+                    },
+                    "gray": {
+                        "50": "#151100",
+                        "100": "#1d1700",
+                        "200": "#2f2400",
+                        "300": "#453400",
+                        "400": "#5c4500",
+                        "500": "#755600",
+                        "600": "#916a00",
+                        "700": "#b08100",
+                        "800": "#d19a00",
+                        "900": "#f5b500",
+                        "950": "#ffcd33"
+                    },
                     "tertiary-fixed-dim": "#b4c5ff",
                     "on-error-container": "#93000a",
                     "on-primary": "#ffffff",
-                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-on-surface": "#121008",
                     "on-error": "#ffffff",
-                    "on-surface": "#1a1c1c",
-                    "secondary-container": "#f7e1a6",
-                    "secondary": "#6d5d2f",
+                    "on-surface": "#eeebea",
+                    "secondary-container": "#4a3c10",
+                    "secondary": "#a88a44",
                     "error": "#ba1a1a",
                     "on-tertiary-container": "#254188",
                     "surface-bright": "#f9f9f9",
-                    "surface-tint": "#735c00",
+                    "surface-tint": "#876600",
                     "inverse-surface": "#2f3131",
                     "tertiary-fixed": "#dbe1ff",
-                    "on-primary-container": "#554300",
+                    "on-primary-container": "#ffd15e",
                     "error-container": "#ffdad6",
                     "outline": "#7f7663",
-                    "surface-container-lowest": "#ffffff",
-                    "surface-dim": "#dadada",
-                    "surface-container-low": "#f3f3f3",
+                    "surface-container-lowest": "#121008",
+                    "surface-dim": "#151100",
+                    "surface-container-low": "#1d1700",
                     "on-primary-fixed": "#241a00",
                     "outline-variant": "#d0c5af",
-                    "on-secondary-container": "#736334",
-                    "on-surface-variant": "#4d4635",
+                    "on-secondary-container": "#eed185",
+                    "on-surface-variant": "#ddd6ce",
                     "tertiary": "#415ba4",
                     "tertiary-container": "#97b0ff",
-                    "on-primary-fixed-variant": "#574500",
+                    "on-primary-fixed-variant": "#ffd1cf",
                     "on-tertiary-fixed-variant": "#27438a",
-                    "background": "#f9f9f9",
-                    "inverse-primary": "#e9c349",
-                    "primary-fixed": "#ffe088",
+                    "background": "#151100",
+                    "inverse-primary": "#4b3c00",
+                    "primary-fixed": "#c79e00",
                     "on-secondary-fixed": "#241a00",
-                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-highest": "#332c1c",
                     "on-tertiary-fixed": "#00174b",
-                    "surface-container": "#eeeeee",
-                    "surface": "#f9f9f9",
+                    "surface-container": "#2f2400",
+                    "surface": "#151100",
                     "on-tertiary": "#ffffff",
-                    "surface-container-high": "#e8e8e8",
+                    "surface-container-high": "#2f2400",
                     "on-secondary": "#ffffff",
-                    "primary": "#735c00",
+                    "primary": "#bca354",
                     "on-secondary-fixed-variant": "#544519",
-                    "surface-variant": "#e2e2e2",
+                    "surface-variant": "#4a4230",
                     "secondary-fixed": "#f7e1a6",
-                    "primary-container": "#d4af37",
+                    "primary-container": "#4b3c00",
                     "secondary-fixed-dim": "#dac58d",
-                    "on-background": "#1a1c1c",
+                    "on-background": "#ece1c8",
                     "primary-fixed-dim": "#e9c349"
             },
             "borderRadius": {
@@ -140,28 +166,59 @@
         .placeholder-tile:hover::after {
             transform: translateX(130%);
         }
-    </style>
+    
+        /* Page and Content Animations */
+        body {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+        body.page-transitioning {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+</style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
-<header class="sticky top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-sm shadow-stone-200/50 dark:shadow-none">
-<nav class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
-<div class="text-2xl font-serif italic text-stone-900 dark:text-stone-50">Chhaya Photo Studio</div>
+<header class="sticky top-0 w-full z-50 dark: backdrop-blur-xl dark:shadow-none bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50 ">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50 ">
+<div class="flex flex-col items-start translate-y-1">
+<span class="text-3xl font-serif font-bold text-yellow-600 tracking-tight leading-none lowercase">chhaya photo studio</span>
+<span class="text-[0.65rem] font-sans tracking-[0.3em] text-gray-400 uppercase mt-1 pl-1">Capture Your Moments</span>
+</div>
 <div class="hidden md:flex items-center gap-10">
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="dashboard.html">Home</a>
-<a class="text-yellow-700 dark:text-yellow-500 border-b border-yellow-700/30 pb-1 hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
+<a class="text-gray-600 dark:text-gray-400 border-b border-gray-500/30 pb-1 hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="services.html">Services</a>
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
 <a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-full font-medium tracking-tight hover:opacity-90 active:scale-95 transition-all" data-book-session-trigger="true">
-                Book a Session
-            </button>
+
+<div class="flex items-center gap-3">
+<button class="bg-gradient-to-br from-[#bca354] to-[#876600] text-yellow-50 px-8 py-3 rounded-md font-medium shadow-lg shadow-yellow-600/20 active:scale-95 transition-all" data-book-session-trigger="true">
+    Book a Session
+</button>
+</div>
+
 </nav>
 </header>
-<main class="min-h-screen">
+<main class="reveal-on-scroll min-h-screen">
 <!-- Hero Header -->
-<section class="pt-24 pb-16 px-8 max-w-screen-2xl mx-auto">
+<section class="reveal-on-scroll pt-24 pb-16 px-8 max-w-screen-2xl mx-auto">
 <div class="max-w-3xl">
 <h1 class="text-6xl md:text-7xl font-headline font-bold text-on-surface tracking-tight leading-tight mb-6">
                     Captured <span class="italic font-normal text-primary">Essence</span>
@@ -172,7 +229,7 @@
 </div>
 </section>
 <!-- Category Tabs -->
-<section class="px-8 pb-12 sticky top-[88px] z-40 bg-surface/80 backdrop-blur-md">
+<section class="reveal-on-scroll px-8 pb-12 sticky top-[88px] z-40 bg-surface/80 backdrop-blur-md">
 <div class="max-w-screen-2xl mx-auto flex flex-wrap gap-8 items-center border-b border-outline-variant/15 pb-4">
 <button class="font-serif text-lg text-primary border-b-2 border-primary pb-2">All Works</button>
 <button class="font-serif text-lg text-on-surface-variant hover:text-primary transition-colors pb-2">Passport</button>
@@ -182,8 +239,8 @@
 </div>
 </section>
 <!-- Portfolio Masonry Grid -->
-<section class="px-8 pb-32 max-w-screen-2xl mx-auto">
-<div class="masonry-grid">
+<section class="reveal-on-scroll px-8 pb-32 max-w-screen-2xl mx-auto">
+<div class="masonry-grid reveal-on-scroll">
 <!-- Item 1: Vertical Portrait -->
 <div class="masonry-item group">
 <div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-[3/4]">
@@ -254,8 +311,8 @@
 </div>
 </section>
 <!-- Team Process and Signature Categories -->
-<section class="px-8 pb-32 max-w-screen-2xl mx-auto space-y-20">
-<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="team-process">
+<section class="reveal-on-scroll px-8 pb-32 max-w-screen-2xl mx-auto space-y-20">
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="team-process">
 <div class="max-w-4xl">
 <p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">How The Team Works</p>
 <h2 class="font-headline text-4xl md:text-5xl mb-6">Our Process, From First Call To Final Delivery</h2>
@@ -263,7 +320,7 @@
                     Every project follows a clear collaborative flow so you know exactly what happens at each stage. This section is your process overview and can be expanded with behind-the-scenes images anytime.
                 </p>
 </div>
-<div class="grid md:grid-cols-4 gap-6 mt-10">
+<div class="grid md:grid-cols-4 gap-6 mt-10 reveal-on-scroll">
 <div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 80ms;">
 <p class="font-semibold mb-2">01. Discovery</p>
 <p class="text-sm text-on-surface-variant">We discuss goals, style references, timeline, and outcomes.</p>
@@ -283,7 +340,7 @@
 </div>
 </section>
 
-<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="events-showcase">
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="events-showcase">
 <div class="md:flex md:items-center md:justify-between gap-8">
 <div class="max-w-2xl">
 <p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Events Coverage</p>
@@ -292,7 +349,7 @@
                             Add your best event moments here: keynote highlights, stage shots, audience candids, decor details, and after-event storytelling frames.
                         </p>
 </div>
-<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 1</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 2</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 3</div>
@@ -301,7 +358,7 @@
 </div>
 </section>
 
-<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="weddings-showcase">
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="weddings-showcase">
 <div class="md:flex md:items-center md:justify-between gap-8">
 <div class="max-w-2xl">
 <p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Weddings</p>
@@ -310,7 +367,7 @@
                             This block is ready for your wedding storytelling sequence: rituals, vows, family portraits, couple frames, and reception energy.
                         </p>
 </div>
-<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 1</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 2</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 3</div>
@@ -319,7 +376,7 @@
 </div>
 </section>
 
-<section class="bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="fine-art-showcase">
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="fine-art-showcase">
 <div class="md:flex md:items-center md:justify-between gap-8">
 <div class="max-w-2xl">
 <p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Fine Art</p>
@@ -328,7 +385,7 @@
                             Reserve this section for your most premium artistic work. You can later replace placeholders with hero portraits, editorial sets, and signature prints.
                         </p>
 </div>
-<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md">
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 1</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 2</div>
 <div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 3</div>
@@ -338,7 +395,7 @@
 </section>
 </section>
 <!-- Newsletter / CTA -->
-<section class="bg-surface-container-low py-32 px-8">
+<section class="reveal-on-scroll bg-surface-container-low py-32 px-8">
 <div class="max-w-screen-xl mx-auto text-center">
 <h2 class="text-4xl md:text-5xl font-headline italic mb-8 text-on-surface">Stay in the light.</h2>
 <p class="text-on-surface-variant font-light mb-12 max-w-lg mx-auto">Join our private list to receive seasonal updates, editorial journals, and first access to booking sessions.</p>
@@ -358,11 +415,11 @@
             </button>
 <h2 class="font-headline text-3xl mb-8">Book a Session</h2>
 <form class="space-y-6" data-booking-form="">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
 <input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="name" placeholder="Full Name" required="" type="text"/>
 <input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="email" placeholder="Email Address" required="" type="email"/>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
 <input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="phone" placeholder="Phone Number" type="tel"/>
 <input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="date" required="" type="date"/>
 </div>
@@ -384,20 +441,33 @@
 </div>
 </div>
 <!-- Footer -->
-<footer class="w-full py-20 px-8 bg-stone-100 dark:bg-stone-950">
-<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto border-t border-stone-200/50 pt-12">
-<div class="text-lg font-serif text-stone-800 dark:text-stone-200">Chhaya Photo Studio</div>
-<div class="flex gap-10">
-<a class="font-sans text-sm tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-yellow-700 transition-colors duration-300" href="#">Instagram</a>
-<a class="font-sans text-sm tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-yellow-700 transition-colors duration-300" href="#">Pinterest</a>
-<a class="font-sans text-sm tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-yellow-700 transition-colors duration-300" href="#">Vimeo</a>
-<a class="font-sans text-sm tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-yellow-700 transition-colors duration-300" href="#">Journal</a>
-</div>
-<div class="font-sans text-sm tracking-widest uppercase text-stone-500 dark:text-stone-400">
-                © 2024 Chhaya Photo Studio. All rights reserved.
+
+<footer class="w-full py-20 px-8 bg-black border-t border-white/5 relative z-50">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-12 max-w-screen-2xl mx-auto">
+        <div class="flex flex-col items-start transition-transform hover:-translate-y-1 duration-500">
+            <span class="text-2xl font-serif font-bold text-yellow-600 tracking-tight leading-none lowercase">chhaya photo studio</span>
+            <span class="text-[0.65rem] font-sans tracking-[0.3em] text-gray-400 uppercase mt-1 pl-1">Capture Your Moments</span>
+            <p class="text-stone-500 text-xs tracking-widest uppercase mt-8">© 2024 Chhaya Photo Studio.<br/>All rights reserved.</p>
+        </div>
+        <div class="flex flex-col md:flex-row gap-12 md:gap-24 text-stone-500 font-sans text-sm tracking-widest leading-relaxed">
+            <div class="flex flex-col gap-4">
+                <span class="text-yellow-700 font-semibold uppercase mb-2 text-xs">Reach Out</span>
+                <a href="mailto:jishnu1106@gmail.com" class="hover:text-yellow-600 transition-colors">jishnu1106@gmail.com</a>
+                <a href="tel:9270059959" class="hover:text-yellow-600 transition-colors">+91 9270059959</a>
+                <a href="tel:7410576273" class="hover:text-yellow-600 transition-colors">+91 7410576273</a>
             </div>
-</div>
+            <div class="flex flex-col gap-4">
+                <span class="text-yellow-700 font-semibold uppercase mb-2 text-xs">Socials</span>
+                <a href="https://instagram.com/chhaya_photos" target="_blank" class="hover:text-yellow-600 transition-colors">Insta: chhaya_photos</a>
+            </div>
+            <div class="flex flex-col gap-4 max-w-xs">
+                <span class="text-yellow-700 font-semibold uppercase mb-2 text-xs">Visit Us</span>
+                <p class="text-xs">Chhaya Photo Studio, Shop no.1,<br>Sonraj Complex, near Nalanda Hotel,<br>S.T. stand road, Islampur,<br>Maharashtra, India, 415409</p>
+            </div>
+        </div>
+    </div>
 </footer>
+
 <script>
     (function () {
         const currentPage = (window.location.pathname.split("/").pop() || "dashboard.html").toLowerCase();
@@ -409,10 +479,10 @@
             const isActive = targetPage === currentPage;
 
             link.classList.remove(
-                "text-yellow-700",
-                "dark:text-yellow-500",
+                "text-gray-600",
+                "dark:text-gray-400",
                 "border-b",
-                "border-yellow-700/30",
+                "border-gray-500/30",
                 "pb-1",
                 "text-stone-600",
                 "dark:text-stone-400",
@@ -420,7 +490,7 @@
             );
 
             if (isActive) {
-                link.classList.add("text-yellow-700", "dark:text-yellow-500", "border-b", "border-yellow-700/30", "pb-1");
+                link.classList.add("text-gray-600", "dark:text-gray-400", "border-b", "border-gray-500/30", "pb-1");
             } else {
                 link.classList.add("text-stone-600", "dark:text-stone-400", "font-medium");
             }
@@ -538,5 +608,54 @@
             observer.observe(item);
         });
     })();
+</script>
+
+<script>
+    // Smooth Page Transitions & Scroll Animations
+    document.addEventListener('DOMContentLoaded', () => {
+        // Trigger initial page load transition
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 50);
+
+        // Scroll Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        };
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    // Slight stagger for elements revealing at the same time
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, idx * 100); 
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Intercept navigation links for exit transitions
+        document.querySelectorAll('a[href$=".html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.target === '_blank' || this.hasAttribute('download')) return;
+                
+                // only intercept if it's changing pages inside the app
+                const targetUrl = this.href;
+                const currentUrl = window.location.href;
+                if(targetUrl !== currentUrl) {
+                    e.preventDefault();
+                    document.body.classList.remove('loaded');
+                    document.body.classList.add('page-transitioning');
+                    
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 400); // Wait for transition out
+                }
+            });
+        });
+    });
 </script>
 </body></html>
