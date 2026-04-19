@@ -137,23 +137,34 @@
             transform: translateY(0);
         }
 
+        /* Infinite Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 50s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
 </style>
 </head>
-<body class="bg-surface font-body text-base leading-relaxed text-on-surface antialiased selection:bg-primary-container/30">
-<header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 shadow-lg shadow-black/30 backdrop-blur-xl">
-<nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:py-5">
-<a class="flex min-w-0 flex-col items-start no-underline" href="dashboard.html">
-<span class="font-headline text-2xl font-bold leading-none tracking-tight text-primary sm:text-3xl lowercase">chhaya photo studio</span>
-<span class="mt-1 pl-0.5 font-body text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant">Capture Your Moments</span>
-</a>
-<div class="hidden flex-1 justify-center md:flex">
-<div class="flex items-center gap-8 lg:gap-10" data-site-nav-links>
-<a class="border-b-2 border-primary/50 pb-0.5 text-sm font-medium text-primary transition-colors" href="dashboard.html">Home</a>
-<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="portfolio.html">Portfolio</a>
-<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="services.html">Services</a>
-<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="pricing.html">Pricing</a>
-<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="contact.html">Contact</a>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 backdrop-blur-xl bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50 ">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-start translate-y-1">
+<span class="text-3xl font-serif font-bold text-yellow-600 tracking-tight leading-none lowercase">chhaya photo studio</span>
+<span class="text-[0.65rem] font-sans tracking-[0.3em] text-gray-400 uppercase mt-1 pl-1">Capture Your Moments</span>
 </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-gray-600 border-b border-gray-500/30 pb-1 font-serif tracking-tight" href="dashboard.html">Home</a>
+<a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
+<a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="services.html">Services</a>
+<a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
+<a class="text-stone-600 font-medium font-serif tracking-tight hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
 </div>
 <div class="flex shrink-0 items-center gap-3">
 <button class="rounded-md bg-gradient-to-br from-primary to-[#876600] px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary/25 transition hover:brightness-110 active:scale-[0.98]" data-book-session-trigger="true" type="button">
@@ -164,8 +175,8 @@
 </header>
 <main>
 <!-- Hero Section -->
-<section class="reveal-on-scroll relative flex min-h-[min(88vh,920px)] items-center overflow-hidden bg-surface px-4 py-16 sm:px-6 lg:px-8">
-<div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-12 reveal-on-scroll">
+<section class="reveal-on-scroll relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface">
+<div class="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center reveal-on-scroll">
 <div class="md:col-span-6 z-10">
 <span class="font-headline italic text-primary text-xl mb-6 block">Artistry in Every Frame</span>
 <h1 class="font-headline text-6xl md:text-8xl text-on-surface leading-[1.1] tracking-tight mb-8">
@@ -175,36 +186,392 @@
                         A curated photography experience designed to preserve life's most precious stories with elegance and soul.
                     </p>
 <div class="flex flex-wrap gap-6">
-<button class="hero-gradient rounded-lg px-8 py-3 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-transform hover:scale-[1.02]" data-book-session-trigger="true" type="button">
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" data-book-session-trigger="true">
                             Book a Session
                         </button>
-<button class="hero-gradient rounded-lg px-8 py-3 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-transform hover:scale-[1.02]" data-general-inquiry-trigger="true" type="button">
+<button class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" data-general-inquiry-trigger="true">
                             General Inquiry
                         </button>
-<a class="hero-gradient inline-block rounded-lg px-8 py-3 text-base font-semibold text-white no-underline shadow-lg shadow-primary/25 transition-transform hover:scale-[1.02]" href="portfolio.html">
+<a class="hero-gradient text-on-primary px-8 py-3 rounded-lg text-base font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform inline-block" href="portfolio.html">
                             View Portfolio
                         </a>
 </div>
 </div>
-<!-- Signature Gallery Masthead -->
-<div class="md:col-span-6 relative h-[600px]">
-<div class="absolute inset-0 flex items-center justify-center">
-<!-- Primary Image -->
-<div class="w-[85%] h-[90%] relative rounded-sm overflow-hidden shadow-2xl shadow-on-surface/5">
-<img class="w-full h-full object-cover" data-alt="Elegant cinematic portrait of a couple in a sun-drenched field during golden hour, soft focus background, airy and premium feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLE9CAxGg7Nkb9uhvIYfHig7iUuNa-zaS2M2edTeL9oM9uknGkFiTZBYloG_PY9sj7U_YUKC6yZyoySnWPQi7lMvVR_sWVdnq56uGSgKuBkR3gC5cQQuWpJaEeCiyTELK2gfMDaOmMHT-kaO_FB8pBaBm7drWraNem3EBor7yXtS8G3RN-CrPdj870x32okRYSMtGoDCIfmYkgiYXbtHvJ56IdRvLZ-fr-0bQgTcaapSTqJ88VrV1X5xEO7meoRrtsnGqBUzGkFuw"/>
-</div>
-<!-- Overlapping Image -->
-<div class="absolute -bottom-8 -right-4 w-[45%] h-[50%] rounded-sm overflow-hidden border-[12px] border-surface-container-lowest shadow-xl">
-<img class="w-full h-full object-cover" data-alt="Close-up detail of wedding rings and delicate flowers, soft natural lighting, elegant and romantic photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1hWY7vWrVZiIBWwcEcW8SqPpSAWH7oCVxc4II8BTQmMyZIuykMkmSHeUM7iSih-K0DsBnkKh5iv5npr348kVYGXcLxvTvKT6vBKwXnAIJBxrgzb1V9oG-LQX1z1wJClwVBneyW25c4I-iT5LUfFwTKubTKzdXdUVxZQ5imJjKXn5ZPvtvHMx_0X71k72JLWpEhMrdteVzW14sYc9IdQGNdXdT4yqPxgssX2xDtWq5s6uVuIQFRimunsduO1nbwYY-TS9jBtP0-4o"/>
-</div>
-</div>
-</div>
-</div>
-<!-- Background Decoration -->
-<div class="absolute top-0 right-0 w-1/3 h-full bg-surface-container-low -z-10 opacity-50"></div>
 </section>
+
+<!-- Continuous Marquee Gallery -->
+<section class="w-full py-2 overflow-hidden bg-surface relative grayscale-[0.2] hover:grayscale-0 transition-all duration-700">
+    <div class="flex w-max animate-marquee gap-2">
+        <!-- First Set of 20 -->
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1599643477874-ce496b8a8b13?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1507133750070-4447ddb8d60d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1588698547285-d601baff742b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+
+        <!-- Duplicated Set of 20 for infinite gapless loop -->
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1599643477874-ce496b8a8b13?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1507133750070-4447ddb8d60d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+        <div class="h-[350px] aspect-[3/4] flex-shrink-0"><img src="https://images.unsplash.com/photo-1588698547285-d601baff742b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover"></div>
+    </div>
+</section>
+
+<!-- Explore More Button -->
+<div class="w-full bg-surface py-8 flex justify-center">
+    <a href="portfolio.html" class="px-10 py-3 border border-[#bca354]/60 text-[#bca354] hover:bg-[#bca354]/10 rounded-md text-sm font-semibold tracking-widest uppercase transition-all">Explore More</a>
+</div>
+
+<!-- Categorical Service Directory -->
+<section class="w-full bg-surface text-stone-200 py-24 px-8 border-t border-white/10">
+    <div class="max-w-screen-2xl mx-auto space-y-32">
+
+        <!-- FEMALE MODEL CATEGORIES -->
+        <div>
+            <div class="mb-10 pl-5 border-l-[6px] border-[#bca354]">
+                <h3 class="text-3xl md:text-4xl font-headline font-bold uppercase tracking-tight text-white">Female Model Photoshoot Categories</h3>
+                <p class="text-stone-400 mt-3 font-medium text-lg">Explore premium styling genres tailored for female models.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Dresses</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,499</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1589312211993-9c878eadd857?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Tops & Tees</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹999</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Sarees</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹2,499</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Activewear</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,299</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Bridal</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹5,999</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Lingerie</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,799</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Jackets</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,999</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Portraits</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹899</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Pill Button -->
+            <div class="mt-14 flex justify-center">
+                <a href="portfolio.html" class="rounded-full bg-[#bca354] text-black px-10 hover:bg-[#a89048] py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 transition-all duration-300">Explore More Categories</a>
+            </div>
+        </div>
+
+        <!-- MALE MODEL CATEGORIES -->
+        <div>
+            <div class="mb-10 pl-5 border-l-[6px] border-[#bca354]">
+                <h3 class="text-3xl md:text-4xl font-headline font-bold uppercase tracking-tight text-white">Male Model Photoshoot Categories</h3>
+                <p class="text-stone-400 mt-3 font-medium text-lg">Sophisticated and rugged aesthetics crafted for men.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Suits</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹2,499</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Casuals</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,299</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Denim</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,499</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Streetwear</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,199</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1488161628813-04466f872507?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Athleisure</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹999</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Grooming</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹1,799</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1542327897-4141b355e20e?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Accessories</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹699</span>
+                    </div>
+                </a>
+                <a href="services.html" class="flex items-center gap-5 group transition-transform hover:scale-105 duration-300 bg-stone-900 p-2 rounded-lg hover:shadow-lg hover:shadow-black/50 border border-transparent hover:border-stone-700">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1480455624313-e23b44b82d96?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover object-top rounded-md shadow-sm bg-stone-950">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-wide group-hover:text-[#bca354] transition-colors">Headshots</h4>
+                        <span class="text-stone-400 text-sm block font-medium mt-1">Starting from ₹899</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Pill Button -->
+            <div class="mt-14 flex justify-center">
+                <a href="portfolio.html" class="rounded-full bg-[#bca354] text-black px-10 hover:bg-[#a89048] py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 transition-all duration-300">Explore More Categories</a>
+            </div>
+        </div>
+
+        <!-- KIDS CATEGORIES (Vertical!) -->
+        <div>
+            <div class="mb-10 pl-5 border-l-[6px] border-[#bca354]">
+                <h3 class="text-3xl md:text-4xl font-headline font-bold uppercase tracking-tight text-white">Kids Model Photoshoot Categories</h3>
+                <p class="text-stone-400 mt-3 font-medium text-lg">Adorable, vibrant styling and storytelling for the little ones.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <!-- Card -->
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1518882570151-15795ea0d000?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Toddlers</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1519238263530-9b0d1e3e07f9?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Infants</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1514090281146-86ed110f6390?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Party Wear</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1602030028438-4caa1da15f33?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Casual Wear</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1471286174890-9c11241c2cdd?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Siblings</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1503348821034-7a1a14643f80?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Denim</h4>
+                    </div>
+                </a>
+            </div>
+            <!-- Pill Button -->
+            <div class="mt-14 flex justify-center">
+                <a href="portfolio.html" class="rounded-full bg-[#bca354] text-black px-10 hover:bg-[#a89048] py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 transition-all duration-300">Explore More Categories</a>
+            </div>
+        </div>
+
+        <!-- ECOMMERCE CATEGORIES (Vertical!) -->
+        <div>
+            <div class="mb-10 pl-5 border-l-[6px] border-[#bca354]">
+                <h3 class="text-3xl md:text-4xl font-headline font-bold uppercase tracking-tight text-white">eCommerce Products Categories</h3>
+                <p class="text-stone-400 mt-3 font-medium text-lg">Crisp, hyper-detailed photography that drives sales and brand identity.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <!-- Card -->
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1599643477874-ce496b8a8b13?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Cosmetics</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Jewelry</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Footwear</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Watches</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Accessories</h4>
+                    </div>
+                </a>
+                <a href="services.html" class="flex flex-col items-center gap-4 group transition-transform hover:scale-105 duration-300">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" class="w-full aspect-[3/4] object-cover object-center rounded shadow-sm bg-stone-950">
+                    <div class="text-center w-full">
+                        <h4 class="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-[#bca354] transition-colors">Decor</h4>
+                    </div>
+                </a>
+            </div>
+            <!-- Pill Button -->
+            <div class="mt-14 flex justify-center">
+                <a href="portfolio.html" class="rounded-full bg-[#bca354] text-black px-10 hover:bg-[#a89048] py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 transition-all duration-300">Explore More Categories</a>
+            </div>
+        </div>
+
+        <!-- FEATURED OFFERS -->
+        <div>
+            <div class="mb-12 text-center">
+                <h3 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white">Featured Offers For You</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Diagonal Overlay Card -->
+                <a href="pricing.html" class="relative group h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1505934333218-8fe21ff8cebc?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <!-- Diagonal Overlay -->
+                    <div class="absolute -top-10 -right-20 w-48 h-[150%] bg-pink-600/90 -rotate-[15deg] backdrop-blur-sm shadow-xl flex items-center justify-center transition-all duration-500 group-hover:bg-pink-600 group-hover:-rotate-6 group-hover:w-56 group-hover:right-0">
+                         <!-- Vertical Text -->
+                         <div style="writing-mode: vertical-rl; text-orientation: mixed;" class="rotate-180 text-white font-extrabold text-4xl uppercase tracking-[0.2em] origin-center shadow-black/20">Video Shoot</div>
+                    </div>
+                </a>
+                <a href="pricing.html" class="relative group h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1490268571477-01362e4f0dc5?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute -top-10 -left-20 w-48 h-[150%] bg-teal-600/90 rotate-[15deg] backdrop-blur-sm shadow-xl flex items-center justify-center transition-all duration-500 group-hover:bg-teal-600 group-hover:rotate-6 group-hover:w-56 group-hover:left-0 z-10">
+                         <div style="writing-mode: vertical-rl; text-orientation: mixed;" class="text-white font-extrabold text-4xl uppercase tracking-[0.2em] origin-center">Wedding Bundle</div>
+                    </div>
+                </a>
+                <a href="pricing.html" class="relative group h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute -top-10 -right-20 w-48 h-[150%] bg-purple-600/90 -rotate-[15deg] backdrop-blur-sm shadow-xl flex items-center justify-center transition-all duration-500 group-hover:bg-purple-600 group-hover:-rotate-6 group-hover:w-56 group-hover:right-0">
+                         <div style="writing-mode: vertical-rl; text-orientation: mixed;" class="rotate-180 text-white font-extrabold text-4xl uppercase tracking-[0.2em] origin-center">Premium Studio</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SPECIALIZATION BOTTOM SEC -->
+        <div class="pb-16">
+            <div class="mb-12 text-center flex flex-col items-center">
+                <h3 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white relative inline-block">
+                    Our Specialization
+                </h3>
+                <div class="w-32 h-[3px] bg-[#bca354] mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sub Block -->
+                <a href="portfolio.html" class="relative group aspect-square overflow-hidden rounded-md shadow-md block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.15]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity group-hover:from-black/90">
+                        <h4 class="text-white text-2xl font-bold uppercase tracking-[0.1em]">Catalog Shoot</h4>
+                    </div>
+                </a>
+                <a href="portfolio.html" class="relative group aspect-square overflow-hidden rounded-md shadow-md block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1537151608828-ea2b2c92eb2f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.15]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity group-hover:from-black/90">
+                        <h4 class="text-white text-2xl font-bold uppercase tracking-[0.1em]">Outdoor Shoot</h4>
+                    </div>
+                </a>
+                <a href="portfolio.html" class="relative group aspect-square overflow-hidden rounded-md shadow-md block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1589312211993-9c878eadd857?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.15]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity group-hover:from-black/90">
+                        <h4 class="text-white text-2xl font-bold uppercase tracking-[0.1em]">Lookbook Shoot</h4>
+                    </div>
+                </a>
+                <a href="portfolio.html" class="relative group aspect-square overflow-hidden rounded-md shadow-md block">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1598463996773-ce6a6a1aa3ed?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.15]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity group-hover:from-black/90">
+                        <h4 class="text-white text-2xl font-bold uppercase tracking-[0.1em]">Campaign Shoot</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- Intro Section -->
-<section class="reveal-on-scroll py-32 px-8 bg-surface">
+<section class="reveal-on-scroll py-16 px-8 bg-surface">
 <div class="max-w-screen-xl mx-auto text-center">
 <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-8 max-w-3xl mx-auto leading-snug">
                     We believe every image should feel like a piece of <span class="italic">timeless art</span>.
@@ -265,11 +632,11 @@
 </div>
 <button class="text-primary font-headline italic text-lg hover:pr-4 transition-all">View All Work →</button>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal-on-scroll">
-<div class="md:col-span-8 aspect-[16/9] overflow-hidden rounded-sm group">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal-on-scroll md:h-[450px]">
+<div class="md:col-span-7 lg:col-span-8 h-full overflow-hidden rounded-sm group">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Breathtaking wide shot of a wedding ceremony at sunset, soft warm light reflecting off glass, editorial and expensive aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDymK_jln2A1kIglbM3gAQZ7bnc8TETh1BBujShZBhbKUJafVgyZEjrv35G-S2CSRa-6L4dyoNoxZkVwHWhKqIuUP-D40cphnaPpM-fQmXocML2Edimb8d9DCsbDGP2Vy_Mh7f32vdM9LDnSqnIguDYHTFn6qkRwq-Q5sQffJ43qg1nGf6koVl0rjsY2tdU0epvjmueoamZLeKefiQSaCv67MgZNFcb3qSVOzB8RWbtyxQSwssramaUqf3nMqmJl5BypzhmmY17J-E"/>
 </div>
-<div class="md:col-span-4 aspect-[4/5] overflow-hidden rounded-sm group">
+<div class="md:col-span-5 lg:col-span-4 h-full overflow-hidden rounded-sm group">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Candid artistic black and white portrait of an elderly artist in their studio, dramatic side lighting, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUgfvh2JZ-hpAhqOjrkGjVViaFon8b3345W28TcqWM2PPItNFCDKEmfuAaMeWs_E0oUnPXnKAIWw5Ye-nhqmVTHKS0S478R7Q_9x5UKLET19DbH1Jq9BFrr3PSv7FI4J8gPcIO0b04SN4mePWtLQwcneY2d1WQKToeoZPfgOTHmoiAx8LQ-umwJU6NbDtYz9csyc8Dt6gfa840fGt6sd6EZayda9cEaL6GQeW6oVEUdZ1V6NairUd20P0WL8Tgom6iXsH3gyJ4qVE"/>
 </div>
 </div>
@@ -494,6 +861,66 @@
                 }
             });
         });
+
+        // Hero Carousel Logic
+        const track = document.getElementById('hero-carousel-track');
+        const slides = track ? track.children : [];
+        const nextBtn = document.getElementById('carousel-next');
+        const prevBtn = document.getElementById('carousel-prev');
+        const dots = document.querySelectorAll('#carousel-dots button');
+        
+        if (track && slides.length > 0) {
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let autoPlayInterval;
+
+            const updateCarousel = () => {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, index) => {
+                    if(index === currentIndex) {
+                        dot.classList.remove('bg-white/40');
+                        dot.classList.add('bg-white', 'scale-125');
+                    } else {
+                        dot.classList.add('bg-white/40');
+                        dot.classList.remove('bg-white', 'scale-125');
+                    }
+                });
+            };
+
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            };
+
+            const prevSlide = () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            };
+
+            const startAutoPlay = () => {
+                stopAutoPlay();
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            };
+
+            const stopAutoPlay = () => {
+                if(autoPlayInterval) clearInterval(autoPlayInterval);
+            };
+
+            if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+            if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    startAutoPlay();
+                });
+            });
+
+            // Start on load
+            updateCarousel();
+            startAutoPlay();
+        }
     });
 </script>
 </body></html>
