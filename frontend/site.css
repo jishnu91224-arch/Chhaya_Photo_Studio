@@ -1,0 +1,10 @@
+/* Chhaya Photo Studio — shared baseline (used with Tailwind CDN) */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

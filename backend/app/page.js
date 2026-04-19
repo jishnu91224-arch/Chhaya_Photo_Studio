@@ -40,7 +40,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start transition-transform hover:-translate-y-1 duration-500">
                   <span className="text-2xl font-serif font-bold text-yellow-600 tracking-tight leading-none lowercase">chhaya photo studio</span>
                   <span className="text-[0.65rem] font-sans tracking-[0.3em] text-gray-400 uppercase mt-1 pl-1">Capture Your Moments</span>
-                  <p className="text-stone-500 text-xs tracking-widest uppercase mt-8">© 2024 Chhaya Photo Studio.<br/>All rights reserved.</p>
+                  <p className="text-stone-500 text-xs tracking-widest uppercase mt-8">© 2026 Chhaya Photo Studio.<br/>All rights reserved.</p>
               </div>
               <div className="flex flex-col md:flex-row gap-12 md:gap-24 text-stone-500 font-sans text-sm tracking-widest leading-relaxed">
                   <div className="flex flex-col gap-4">
