@@ -50,7 +50,7 @@
                     "error": "#ba1a1a",
                     "on-tertiary-container": "#254188",
                     "surface-bright": "#f9f9f9",
-                    "surface-tint": "#876600",
+                    "surface-tint": "#B5952F",
                     "inverse-surface": "#2f3131",
                     "tertiary-fixed": "#dbe1ff",
                     "on-primary-container": "#ffd15e",
@@ -78,7 +78,7 @@
                     "on-tertiary": "#ffffff",
                     "surface-container-high": "#2f2400",
                     "on-secondary": "#ffffff",
-                    "primary": "#bca354",
+                    "primary": "#D4AF37",
                     "on-secondary-fixed-variant": "#544519",
                     "surface-variant": "#4a4230",
                     "secondary-fixed": "#f7e1a6",
@@ -134,6 +134,36 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .hero-accent {
+            animation: float 7s ease-in-out infinite;
+        }
+        .highlight-badge {
+            animation: float 6s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
+            box-shadow: 0 24px 80px rgba(188, 163, 84, 0.12);
+        }
+        .highlight-badge::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, rgba(255, 205, 51, 0.25), rgba(255, 255, 255, 0));
+            opacity: 0.55;
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.9s ease both;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 24px 80px rgba(188, 163, 84, 0.12); }
+            50% { box-shadow: 0 32px 100px rgba(188, 163, 84, 0.18); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
 </style>
 </head>
@@ -142,19 +172,18 @@
 <nav class="sticky top-0 w-full z-50 dark: backdrop-blur-xl dark:shadow-none bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50 ">
 <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
 <div class="flex flex-col items-start translate-y-1">
-                <span class="text-3xl font-serif font-bold text-yellow-600 tracking-tight leading-none lowercase">chhaya photo studio</span>
+                <span class="text-3xl font-serif font-bold text-[#D4AF37] tracking-tight leading-none lowercase">chhaya photo studio</span>
                 <span class="text-[0.65rem] font-sans tracking-[0.3em] text-gray-400 uppercase mt-1 pl-1">Capture Your Moments</span>
             </div>
 <div class="hidden md:flex items-center space-x-12">
-<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="dashboard.html">Home</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="portfolio.html">Portfolio</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="services.html">Services</a>
-<a class="text-gray-600 dark:text-gray-400 border-b border-gray-500/30 pb-1 hover:text-yellow-600 transition-colors duration-300" href="pricing.html">Pricing</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-yellow-600 transition-colors duration-300" href="contact.html">Contact</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#D4AF37] transition-colors duration-300" href="dashboard.html">Home</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#D4AF37] transition-colors duration-300" href="services.html">Services</a>
+<a class="text-gray-600 dark:text-gray-400 border-b border-gray-500/30 pb-1 hover:text-[#D4AF37] transition-colors duration-300" href="pricing.html">Pricing</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#D4AF37] transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<button class="premium-gradient text-on-primary px-8 py-3 rounded-md font-medium tracking-wide shadow-lg shadow-primary/10 active:opacity-80 transition-all" data-book-session-trigger="true">
-                Book a Session
-            </button>
+<button class="rounded-md bg-gradient-to-br from-primary to-[#B5952F] px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary/25 transition hover:brightness-110 active:scale-[0.98]" data-book-session-trigger="true" type="button">
+    Book a Session
+</button>
 </div>
 </nav>
 </header>
@@ -162,10 +191,25 @@
 <!-- Hero Section -->
 <section class="reveal-on-scroll relative pt-24 pb-16 px-8 max-w-screen-xl mx-auto text-center">
 <span class="font-label text-sm uppercase tracking-[0.3em] text-primary mb-6 block">Investment</span>
-<h1 class="font-headline text-5xl md:text-7xl text-on-surface mb-8 tracking-tight">Preserving your <span class="italic">legacy</span></h1>
+<h1 class="font-headline text-5xl md:text-7xl text-on-surface mb-8 tracking-tight">Preserving your legacy</h1>
 <p class="max-w-2xl mx-auto text-on-surface-variant leading-relaxed text-lg">
                 Transparent investment options designed for those who value intentional storytelling and the art of the captured moment.
             </p>
+</section>
+<section class="reveal-on-scroll px-8 pb-10 max-w-screen-xl mx-auto">
+    <div class="relative overflow-hidden rounded-3xl border border-primary/10 bg-surface-container-low p-6 md:p-8 shadow-2xl shadow-primary/10 highlight-badge">
+        <div class="absolute inset-0 opacity-30 blur-3xl bg-gradient-to-r from-[#f5b500] via-[#d19a00] to-[#8a5d00]"></div>
+        <div class="relative grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-primary/80 font-medium">Studio Note</p>
+                <h2 class="font-headline text-3xl md:text-4xl text-on-surface">Seasonal availability is limited.</h2>
+                <p class="mt-3 text-on-surface-variant max-w-2xl">Book the premium narrative package with a complimentary print consultation and priority retouching.</p>
+            </div>
+            <div class="hero-accent mx-auto md:ml-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-primary ring-2 ring-primary/40 shadow-xl shadow-primary/15">
+                <span class="material-symbols-outlined text-3xl">auto_awesome</span>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Pricing Grid -->
 <section class="reveal-on-scroll px-8 pb-32 max-w-screen-2xl mx-auto">
@@ -174,9 +218,9 @@
 <div class="bg-surface-container-low p-10 flex flex-col justify-between rounded-lg transition-all hover:translate-y-[-4px] duration-500">
 <div>
 <h3 class="font-headline text-2xl mb-2">Wedding Shoot</h3>
-<p class="text-on-surface-variant text-sm mb-8 font-label tracking-wide uppercase">Intimate Portraits</p>
+<p class="text-on-surface-variant text-sm mb-8 font-label tracking-wide uppercase">PHOTOGRAPHS</p>
 <div class="mb-10">
-<span class="text-4xl font-light tracking-tighter text-on-surface">$850</span>
+<span class="text-4xl font-light tracking-tighter text-on-surface">10,499 Rs.</span>
 </div>
 <ul class="space-y-6">
 <li class="flex items-start gap-3 text-on-surface-variant">
@@ -198,19 +242,21 @@
 </ul>
 </div>
 <button class="mt-12 w-full py-4 bg-surface-container-lowest text-primary font-medium tracking-wide hover:bg-white transition-colors" data-book-session-trigger="true">
-                        Inquire Now
+                        BEGIN THE JOURNEY.,lmngtfdresaT
+
+                        ":L3
                     </button>
 </div>
 <!-- Featured Card: The Narrative -->
 <div class="relative bg-surface-container-lowest p-12 flex flex-col justify-between rounded-lg border border-primary-container/20 shadow-[0_32px_64px_-12px_rgba(115,92,0,0.08)] scale-105 z-10 transition-all duration-500">
-<div class="absolute right-10 top-0 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary to-[#876600] px-6 py-2 text-xs font-label font-semibold uppercase tracking-widest text-white shadow-md shadow-primary/20">
+<div class="absolute right-10 top-0 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary to-[#B5952F] px-6 py-2 text-xs font-label font-semibold uppercase tracking-widest text-white shadow-md shadow-primary/20">
                         Most Treasured
                     </div>
 <div>
 <h3 class="font-headline text-3xl mb-2">Personal Shoot</h3>
 <p class="text-primary text-sm mb-8 font-label tracking-wide uppercase font-semibold">Lifestyle &amp; Documentary</p>
 <div class="mb-10">
-<span class="text-5xl font-light tracking-tighter text-on-surface">$1,400</span>
+<span class="text-5xl font-light tracking-tighter text-on-surface">19,999 Rs.</span>
 </div>
 <ul class="space-y-6">
 <li class="flex items-start gap-4 text-on-surface">
@@ -243,9 +289,9 @@
 <div class="bg-surface-container-low p-10 flex flex-col justify-between rounded-lg transition-all hover:translate-y-[-4px] duration-500">
 <div>
 <h3 class="font-headline text-2xl mb-2">Prewedding</h3>
-<p class="text-on-surface-variant text-sm mb-8 font-label tracking-wide uppercase">Full Experience</p>
+<p class="text-on-surface-variant text-sm mb-8 font-label tracking-wide uppercase">SPECIAL SPOT SHOOTING</p>
 <div class="mb-10">
-<span class="text-4xl font-light tracking-tighter text-on-surface">$2,800</span>
+<span class="text-4xl font-light tracking-tighter text-on-surface">28,000 Rs.</span>
 </div>
 <ul class="space-y-6">
 <li class="flex items-start gap-3 text-on-surface-variant">
@@ -267,20 +313,20 @@
 </ul>
 </div>
 <button class="mt-12 w-full py-4 bg-surface-container-lowest text-primary font-medium tracking-wide hover:bg-white transition-colors" data-book-session-trigger="true">
-                        Request Custom Quote
+                        BEGIN THE JOURNEY
                     </button>
 </div>
 </div>
 </section>
 <!-- Gallery Masthead Signature Component -->
-<section class="reveal-on-scroll bg-surface-container-low py-32 px-8">
+<!-- <section class="reveal-on-scroll bg-surface-container-low py-32 px-8">
 <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-16">
 <div class="w-full md:w-1/2 relative">
 <div class="w-full aspect-[4/5] bg-surface-container-lowest rounded-sm overflow-hidden shadow-2xl">
-<img alt="The Art of Storytelling" class="w-full h-full object-cover" data-alt="dramatic portrait of a bride in a sunlit art gallery holding a delicate white bouquet with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCytXPjWo0oEF8Ay6uxXUb0DmH1j1IujLUR5F181qRaw1VjfCD3aEPlAc8rrpZ6eRVBVLb3DfaY6SBY_x3PPMXV906odn7zLIQig7WMHoalMry1NVA8X4OdH5xUS4dqfiIZsBO75NQ0mS_iLtN29NzCWmFgaYjSN5Zx_rgRb0LIDxK4paGigCsIlvFvN4452cKua7cg1hMXo2hLkgeaK6L8rKoi_6dHkrl9yN1hXrbF2lC0H0PIc5UZxSldYcWrfHm2q71ANhZekjo"/>
+<img alt="The Art of Storytelling" class="w-full h-full object-cover" data-alt="dramatic portrait of a bride in a sunlit art gallery holding a delicate white bouquet with soft focus background" src="assets/SHRI9240.JPG.jpeg"/>
 </div>
 <div class="absolute -bottom-10 -right-10 w-2/3 aspect-square bg-surface-container-lowest p-4 rounded-sm shadow-xl hidden md:block">
-<img alt="Craft Detail" class="w-full h-full object-cover" data-alt="close up of hands holding a vintage film camera with warm golden sunset light streaming through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyjOMsxnwr72aCUfGSiYb419UKDZTm4OKDY8qSAuc0MFwuDOh8l-Q-mQ7-lEeOCOQVg2naUaC1OxUmmgGP1VG7yKvTPLHeu1ZyVEHM6INbcLaPJ0EZMyLAySprQyJdk6UTEQyUOLMkOofKxi6jQbvJoDvF-bdHoV94I_MJnfBYNiOqJB5XliHPCsgztq_tguE4cSyx7AgBYQ0rvtEeiKV0i7CYJ---Cg1Z9qUbguunhC867uQJj4ui3gKeSEgmyBxKovTPeU2Gqng"/>
+<img alt="Craft Detail" class="w-full h-full object-cover" data-alt="close up of hands holding a vintage film camera with warm golden sunset light streaming through a window" src="assets/SHRI9268.JPG.jpeg"/>
 </div>
 </div>
 <div class="w-full md:w-1/2 space-y-8">
@@ -291,7 +337,7 @@
 </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- FAQ Inset -->
 <section class="reveal-on-scroll py-32 px-8 max-w-screen-xl mx-auto">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-24 reveal-on-scroll">
@@ -345,7 +391,7 @@
 <textarea class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container resize-none" name="message" placeholder="Tell us about your session" rows="4"></textarea>
 <div class="flex items-center justify-between gap-4">
 <p class="text-sm text-on-surface-variant" data-booking-status=""></p>
-<button class="rounded-lg bg-gradient-to-br from-primary to-[#876600] px-8 py-3 font-medium text-white shadow-md shadow-primary/25 transition hover:brightness-110 disabled:opacity-60" data-booking-submit="" type="submit">
+<button class="rounded-lg bg-gradient-to-br from-primary to-[#B5952F] px-8 py-3 font-medium text-white shadow-md shadow-primary/25 transition hover:brightness-110 disabled:opacity-60" data-booking-submit="" type="submit">
                         Send Booking
                     </button>
 </div>
@@ -376,6 +422,11 @@
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary/90">Visit Us</span>
                 <p class="text-sm leading-relaxed">Chhaya Photo Studio, Shop no.1,<br/>Sonraj Complex, near Nalanda Hotel,<br/>S.T. stand road, Islampur,<br/>Maharashtra, India, 415409</p>
             </div>
+
+<div class="mt-4 w-full overflow-hidden rounded-lg border border-white/10 shadow-lg" style="height: 150px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30528.857321591873!2d74.24647!3d17.04231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc17480a424e4d3%3A0xc63b1fb25b52db77!2sIslampur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
         </div>
     </div>
 </footer>
@@ -518,4 +569,6 @@
         });
     });
 </script>
+
+<script src="assets/js/parallax.js"></script>
 </body></html>

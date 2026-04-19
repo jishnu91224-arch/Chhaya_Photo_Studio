@@ -5,7 +5,6 @@ files = [
     r'd:\SY\WD\PROJECT\Chhaya_Photo_Studio\frontend\dashboard.html',
     r'd:\SY\WD\PROJECT\Chhaya_Photo_Studio\frontend\contact.html',
     r'd:\SY\WD\PROJECT\Chhaya_Photo_Studio\frontend\pricing.html',
-    r'd:\SY\WD\PROJECT\Chhaya_Photo_Studio\frontend\portfolio.html',
     r'd:\SY\WD\PROJECT\Chhaya_Photo_Studio\frontend\services.html'
 ]
 
