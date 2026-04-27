@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="site.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+                        "colors": {
+                    "stone": {
+                        "50": "#151100",
+                        "100": "#1d1700",
+                        "200": "#2f2400",
+                        "300": "#453400",
+                        "400": "#5c4500",
+                        "500": "#755600",
+                        "600": "#916a00",
+                        "700": "#b08100",
+                        "800": "#d19a00",
+                        "900": "#f5b500",
+                        "950": "#ffcd33"
+                    },
+                    "gray": {
+                        "50": "#151100",
+                        "100": "#1d1700",
+                        "200": "#2f2400",
+                        "300": "#453400",
+                        "400": "#5c4500",
+                        "500": "#755600",
+                        "600": "#916a00",
+                        "700": "#b08100",
+                        "800": "#d19a00",
+                        "900": "#f5b500",
+                        "950": "#ffcd33"
+                    },
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#121008",
+                    "on-error": "#ffffff",
+                    "on-surface": "#eeebea",
+                    "secondary-container": "#4a3c10",
+                    "secondary": "#a88a44",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#254188",
+                    "surface-bright": "#f9f9f9",
+                    "surface-tint": "#876600",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-fixed": "#dbe1ff",
+                    "on-primary-container": "#ffd15e",
+                    "error-container": "#ffdad6",
+                    "outline": "#7f7663",
+                    "surface-container-lowest": "#121008",
+                    "surface-dim": "#151100",
+                    "surface-container-low": "#1d1700",
+                    "on-primary-fixed": "#241a00",
+                    "outline-variant": "#d0c5af",
+                    "on-secondary-container": "#eed185",
+                    "on-surface-variant": "#ddd6ce",
+                    "tertiary": "#415ba4",
+                    "tertiary-container": "#97b0ff",
+                    "on-primary-fixed-variant": "#ffd1cf",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "background": "#151100",
+                    "inverse-primary": "#4b3c00",
+                    "primary-fixed": "#c79e00",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-highest": "#332c1c",
+                    "on-tertiary-fixed": "#00174b",
+                    "surface-container": "#2f2400",
+                    "surface": "#151100",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#2f2400",
+                    "on-secondary": "#ffffff",
+                    "primary": "#bca354",
+                    "on-secondary-fixed-variant": "#544519",
+                    "surface-variant": "#4a4230",
+                    "secondary-fixed": "#f7e1a6",
+                    "primary-container": "#4b3c00",
+                    "secondary-fixed-dim": "#dac58d",
+                    "on-background": "#ece1c8",
+                    "primary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            transition: opacity 700ms ease, transform 700ms ease;
+            will-change: opacity, transform;
+        }
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .process-card {
+            transition: transform 280ms ease, box-shadow 280ms ease;
+        }
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px -18px rgba(26, 28, 28, 0.35);
+        }
+        .placeholder-tile {
+            position: relative;
+            overflow: hidden;
+            transition: transform 280ms ease, filter 280ms ease;
+        }
+        .placeholder-tile::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.25), transparent 80%);
+            transform: translateX(-130%);
+            transition: transform 650ms ease;
+        }
+        .placeholder-tile:hover {
+            transform: translateY(-4px) scale(1.02);
+            filter: brightness(1.03);
+        }
+        .placeholder-tile:hover::after {
+            transform: translateX(130%);
+        }
+    
+        /* Page and Content Animations */
+        body {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+        body.page-transitioning {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+</style>
+</head>
+<body class="bg-surface font-body text-base leading-relaxed text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 shadow-lg shadow-black/30 backdrop-blur-xl">
+<nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:py-5">
+<a class="flex min-w-0 flex-col items-start no-underline" href="dashboard.html">
+<span class="font-headline text-2xl font-bold leading-none tracking-tight text-primary sm:text-3xl lowercase">chhaya photo studio</span>
+<span class="mt-1 pl-0.5 font-body text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant">Capture Your Moments</span>
+</a>
+<div class="hidden flex-1 justify-center md:flex">
+<div class="flex items-center gap-8 lg:gap-10" data-site-nav-links>
+<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="dashboard.html">Home</a>
+<a class="border-b-2 border-primary/50 pb-0.5 text-sm font-medium text-primary transition-colors" href="portfolio.html">Portfolio</a>
+<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="services.html">Services</a>
+<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="pricing.html">Pricing</a>
+<a class="border-b-2 border-transparent pb-0.5 text-sm font-medium text-on-surface-variant transition-colors hover:text-primary" href="contact.html">Contact</a>
+</div>
+</div>
+<div class="flex shrink-0 items-center gap-3">
+<button class="rounded-md bg-gradient-to-br from-primary to-[#876600] px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary/25 transition hover:brightness-110 active:scale-[0.98]" data-book-session-trigger="true" type="button">
+    Book a Session
+</button>
+</div>
+</nav>
+</header>
+<main class="reveal-on-scroll min-h-screen">
+<!-- Hero Header -->
+<section class="reveal-on-scroll pt-24 pb-16 px-8 max-w-screen-2xl mx-auto">
+<div class="max-w-3xl">
+<h1 class="text-6xl md:text-7xl font-headline font-bold text-on-surface tracking-tight leading-tight mb-6">
+                    Captured <span class="italic font-normal text-primary">Essence</span>
+</h1>
+<p class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl">
+                    An editorial archive of life’s most profound transitions—from the intimacy of a union to the celebration of a milestone.
+                </p>
+</div>
+</section>
+<!-- Category Tabs -->
+<section class="reveal-on-scroll px-8 pb-12 sticky top-[88px] z-40 bg-surface/80 backdrop-blur-md">
+<div class="max-w-screen-2xl mx-auto flex flex-wrap gap-8 items-center border-b border-outline-variant/15 pb-4">
+<button class="font-serif text-lg text-primary border-b-2 border-primary pb-2">All Works</button>
+<button class="font-serif text-lg text-on-surface-variant hover:text-primary transition-colors pb-2">Passport</button>
+<button class="font-serif text-lg text-on-surface-variant hover:text-primary transition-colors pb-2">Weddings</button>
+<button class="font-serif text-lg text-on-surface-variant hover:text-primary transition-colors pb-2">Events</button>
+<button class="font-serif text-lg text-on-surface-variant hover:text-primary transition-colors pb-2">Portraits</button>
+</div>
+</section>
+<!-- Portfolio Masonry Grid -->
+<section class="reveal-on-scroll px-8 pb-32 max-w-screen-2xl mx-auto">
+<div class="masonry-grid reveal-on-scroll">
+<!-- Item 1: Vertical Portrait -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-[3/4]">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="ethereal bride in a flowing lace gown standing in a sun-drenched marble hallway with soft morning light and long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_8khdzUA_XG4Vmk7IQl-nnOvxZXyQ7PQxY_NwarsaTNY7WaT5cxBFZijHl0BdWng_cS7K3ZuzW2CEncw8UDX0ETUjvpkoomrRYJAvSowl5C8VX-AhvXTwrq7yMYRB0QfnHm--ABJYsSwpqWP5J1nuajxXoJlf_z1J6TCYnllTMtW9F0AVWbymYPNEfyf7oHTh0YKwwtVZ7f2vjHeViEpyMJAznuiBmMrLx0lkxOGi5H6rbmafiOxl3lEIsv5Y5Dhr6FEE2pNyluA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Weddings</span>
+<h3 class="text-on-primary font-headline text-2xl italic">The Morning Light</h3>
+</div>
+</div>
+</div>
+<!-- Item 2: Landscape Event -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="candid shot of a high-end black tie gala dinner with crystal chandeliers, elegant table settings and blurred guests in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY9jxcqaXcbfGhj0w3fjRL34XUt_8IzOmp0bHWUu992byvRZwsaU10ZNk9I6w4qcwPV3jSPeZ9D3Z9vDne9OTVxcXezkpcZ5Y98j4u-JdxHYdmjLECneh4KkOlQ03BNjGWIedIjGBvAlI9SnSKM0J0KNDf_TEeFkjtmiHAPI7sEajAYScimFnkoF0Q7Fv6cnury4lCu6jYxNf8KG5fs9PTC1A4tq_X7H5ehH3obNsYi31foy0Ijw1KiFZ0k3OtROZch59Xw-E5yF4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Events</span>
+<h3 class="text-on-primary font-headline text-2xl italic">A Night to Remember</h3>
+</div>
+</div>
+</div>
+<!-- Item 3: Square Passport/Identity -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-square">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="high-contrast studio portrait of a man with dramatic side lighting and dark textured background for a professional identity headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ9pBOSMy4adPrLUSWu5-PL31yBvKi2x27VnIqOQD_nqX5QsztEI2LFSO_97AWDljGuVw9PzKgN8SOgOgz1iDtk8v74OS6Kz6E9YyrnoSXuFIMBnF0ldFMl35cYskHn3XCYfL-7BopphkSK3FhurvIcE_klifKjspaXQSObVYT62ibgsgJiaVQpU9WAJCzTakFuRHdzEJCRmvbmaJ-CZsg5qDhylqFYlVjaYoOF7L_eySI3mDz9LXgJq-aMYWStgbi6-JayxfYCPQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Passport</span>
+<h3 class="text-on-primary font-headline text-2xl italic">The Professional</h3>
+</div>
+</div>
+</div>
+<!-- Item 4: Large Asymmetric -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-[2/3]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="abstract architectural detail of a modern white building with sharp shadows and geometric shapes against a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkNBnapQNp4Vo8M6rFP2Q4qvlCubLQy-QnbBKZggAToBovvwJMEyc9YP9M3p0335zrqrMKz7MI4p-qmIfqPYpFfg-P3KEEFDbj-2a8d6bhp4fS7Sn6HklwF_qyrdppTR_pylbc5MT-ewNVO3E1ssIOymOPPbFqniRRLAV1oirXmaQmrfJfd-JLRxcMZl5aP3aMeXuU3PXLbUx-rE885-JAIiaqISgQI5beFK6CxB6nFCeleYJ-PhwpFgJWQj5UmNQ6fuS9gZleO8s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Portraits</span>
+<h3 class="text-on-primary font-headline text-2xl italic">Geometric Soul</h3>
+</div>
+</div>
+</div>
+<!-- Item 5: Detail Shot -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-[4/5]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="close up of delicate golden wedding rings resting on a piece of vintage parchment paper with soft dried flowers and antique pen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKpfZWt5-HC2XUMImCnIodZy1E3W7O0MluAfNCoFJaptzlZp2aLSdxufzSnsQiGMGgCWn8d_HgCRstdl5LkdaDA6asvA7w0YcibDXkWOGZ33Ymx7NOLSva45unJgIDwEVpxgRCAL61dRP7hppkJHpdqb3UKd-8cSV7fWZFYwD0dWOLNDmO4YMxVDJoGp_OIMDBNPL0MfnxahNuwnSdHK6VzJ-vDGPgUg43YtzRGu0uAYruXbp3w1VmAzQXVps1XQBKvJ6VcyIj_U4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Weddings</span>
+<h3 class="text-on-primary font-headline text-2xl italic">The Vow</h3>
+</div>
+</div>
+</div>
+<!-- Item 6: Editorial -->
+<div class="masonry-item group">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-low aspect-square">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="editorial portrait of a woman in a high fashion pose wearing a silk cream blouse against a warm beige textured wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnRCqf2DBjxVM_bFoMQKzjbA5LdR35qnXG67J8pXn3DiGcLv5CsL9DnKwCuHA2tu7480pPr5aWMoWCoYtdTx4UJWPRdgjLHc3uaqMUKo4QCrqs8J6heU7HpXFvlB4opE53U7zL82cI5qot4fCEgFszzM_aob8mRAxhSYZF2k5dIhAc5BzVHgPCR8eqKdDu7aZdAHBVg8gAgTlGtKfOoaZSnN8-90561V0VhcgSq4BP2WzMnKPMY5fWyO32bt202zZBtDsQV361F8c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-on-primary text-xs tracking-widest uppercase mb-2">Portraits</span>
+<h3 class="text-on-primary font-headline text-2xl italic">Silk &amp; Stone</h3>
+</div>
+</div>
+</div>
+</div>
+<!-- More Button -->
+<div class="mt-20 flex justify-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="text-on-surface-variant text-sm tracking-[0.2em] uppercase group-hover:text-primary transition-colors">Discover More</span>
+<span class="material-symbols-outlined text-primary text-4xl animate-bounce">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Team Process and Signature Categories -->
+<section class="reveal-on-scroll px-8 pb-32 max-w-screen-2xl mx-auto space-y-20">
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="team-process">
+<div class="max-w-4xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">How The Team Works</p>
+<h2 class="font-headline text-4xl md:text-5xl mb-6">Our Process, From First Call To Final Delivery</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                    Every project follows a clear collaborative flow so you know exactly what happens at each stage. This section is your process overview and can be expanded with behind-the-scenes images anytime.
+                </p>
+</div>
+<div class="grid md:grid-cols-4 gap-6 mt-10 reveal-on-scroll">
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 80ms;">
+<p class="font-semibold mb-2">01. Discovery</p>
+<p class="text-sm text-on-surface-variant">We discuss goals, style references, timeline, and outcomes.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 160ms;">
+<p class="font-semibold mb-2">02. Planning</p>
+<p class="text-sm text-on-surface-variant">Our team maps moodboards, shot list, schedule, and logistics.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 240ms;">
+<p class="font-semibold mb-2">03. Capture Day</p>
+<p class="text-sm text-on-surface-variant">Photographers and support crew execute coverage seamlessly.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 process-card reveal" style="transition-delay: 320ms;">
+<p class="font-semibold mb-2">04. Edit and Delivery</p>
+<p class="text-sm text-on-surface-variant">Curated edits, quality checks, and private gallery handover.</p>
+</div>
+</div>
+</section>
+
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="events-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Events Coverage</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">Corporate, Cultural, and Private Events</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Add your best event moments here: keynote highlights, stage shots, audience candids, decor details, and after-event storytelling frames.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Event Image 4</div>
+</div>
+</div>
+</section>
+
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="weddings-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Weddings</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">Ceremony To Celebration, Captured With Emotion</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            This block is ready for your wedding storytelling sequence: rituals, vows, family portraits, couple frames, and reception energy.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Wedding Image 4</div>
+</div>
+</div>
+</section>
+
+<section class="reveal-on-scroll bg-surface-container-low rounded-xl p-10 md:p-14 reveal" id="fine-art-showcase">
+<div class="md:flex md:items-center md:justify-between gap-8">
+<div class="max-w-2xl">
+<p class="text-primary text-xs tracking-[0.2em] uppercase mb-4">Fine Art</p>
+<h3 class="font-headline text-3xl md:text-4xl mb-4">The Finest Art Frames Curated By The Team</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Reserve this section for your most premium artistic work. You can later replace placeholders with hero portraits, editorial sets, and signature prints.
+                        </p>
+</div>
+<div class="mt-8 md:mt-0 grid grid-cols-2 gap-4 w-full md:max-w-md reveal-on-scroll">
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 1</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 2</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 3</div>
+<div class="aspect-square rounded-lg bg-surface-container-high flex items-center justify-center text-xs uppercase tracking-widest text-on-surface-variant placeholder-tile">Fine Art 4</div>
+</div>
+</div>
+</section>
+</section>
+<!-- Newsletter / CTA -->
+<section class="reveal-on-scroll bg-surface-container-low py-32 px-8">
+<div class="max-w-screen-xl mx-auto text-center">
+<h2 class="text-4xl md:text-5xl font-headline italic mb-8 text-on-surface">Stay in the light.</h2>
+<p class="text-on-surface-variant font-light mb-12 max-w-lg mx-auto">Join our private list to receive seasonal updates, editorial journals, and first access to booking sessions.</p>
+<form class="max-w-md mx-auto flex gap-4" data-newsletter-form="">
+<input class="flex-1 bg-transparent border-b border-outline focus:border-primary-container outline-none py-3 px-2 font-light transition-all" name="email" placeholder="Your Email Address" required="" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-sm font-medium hover:bg-surface-tint transition-colors" type="submit">Join</button>
+</form>
+<p class="text-sm text-on-surface-variant mt-4" data-newsletter-status=""></p>
+</div>
+</section>
+</main>
+<!-- Booking Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/50" data-booking-modal="">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl p-8 md:p-10 relative">
+<button aria-label="Close booking form" class="absolute right-4 top-4 text-on-surface-variant hover:text-on-surface" data-booking-close="" type="button">
+                ✕
+            </button>
+<h2 class="font-headline text-3xl mb-8">Book a Session</h2>
+<form class="space-y-6" data-booking-form="">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="phone" placeholder="Phone Number" type="tel"/>
+<input class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="date" required="" type="date"/>
+</div>
+<select class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container" name="serviceType" required="">
+<option disabled="" selected="" value="">Select Service Type</option>
+<option value="Portrait Session">Portrait Session</option>
+<option value="Wedding Coverage">Wedding Coverage</option>
+<option value="Commercial Shoot">Commercial Shoot</option>
+<option value="General Inquiry">General Inquiry</option>
+</select>
+<textarea class="w-full border border-outline-variant bg-transparent rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary-container resize-none" name="message" placeholder="Tell us about your session" rows="4"></textarea>
+<div class="flex items-center justify-between gap-4">
+<p class="text-sm text-on-surface-variant" data-booking-status=""></p>
+<button class="rounded-lg bg-gradient-to-br from-primary to-[#876600] px-8 py-3 font-medium text-white shadow-md shadow-primary/25 transition hover:brightness-110 disabled:opacity-60" data-booking-submit="" type="submit">
+                        Send Booking
+                    </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer -->
+
+<footer class="relative z-50 border-t border-white/10 bg-black py-12 md:py-16">
+    <div class="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-between md:gap-12">
+        <div class="flex max-w-sm flex-col items-start">
+            <span class="font-headline text-2xl font-bold leading-none tracking-tight text-primary lowercase">chhaya photo studio</span>
+            <span class="mt-1 pl-0.5 font-body text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant">Capture Your Moments</span>
+            <p class="mt-6 text-xs font-medium uppercase tracking-widest text-on-surface-variant/80">© 2026 Chhaya Photo Studio.<br/>All rights reserved.</p>
+        </div>
+        <div class="flex flex-col gap-10 font-body text-sm leading-relaxed tracking-wide text-on-surface-variant md:flex-row md:gap-16 lg:gap-24">
+            <div class="flex flex-col gap-3">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary/90">Reach Out</span>
+                <a class="transition-colors hover:text-primary" href="mailto:jishnu1106@gmail.com">jishnu1106@gmail.com</a>
+                <a class="transition-colors hover:text-primary" href="tel:9270059959">+91 9270059959</a>
+                <a class="transition-colors hover:text-primary" href="tel:7410576273">+91 7410576273</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary/90">Socials</span>
+                <a class="transition-colors hover:text-primary" href="https://instagram.com/chhaya_photos" target="_blank" rel="noopener noreferrer">Instagram: chhaya_photos</a>
+            </div>
+            <div class="flex max-w-xs flex-col gap-3">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary/90">Visit Us</span>
+                <p class="text-sm leading-relaxed">Chhaya Photo Studio, Shop no.1,<br/>Sonraj Complex, near Nalanda Hotel,<br/>S.T. stand road, Islampur,<br/>Maharashtra, India, 415409</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        const currentPage = (window.location.pathname.split("/").pop() || "dashboard.html").toLowerCase();
+        const navLinks = document.querySelectorAll("[data-site-nav-links] a[href$=\".html\"]");
+        if (!navLinks.length) return;
+
+        navLinks.forEach((link) => {
+            const targetPage = (link.getAttribute("href") || "").split("/").pop().toLowerCase();
+            const isActive = targetPage === currentPage;
+
+            link.classList.remove(
+                "text-primary",
+                "border-primary/50",
+                "border-transparent",
+                "text-on-surface-variant",
+                "hover:text-primary"
+            );
+
+            if (isActive) {
+                link.classList.add("text-primary", "border-primary/50");
+            } else {
+                link.classList.add("text-on-surface-variant", "hover:text-primary", "border-transparent");
+            }
+        });
+    })();
+
+    (function () {
+        const API_BASE = window.CHHAYA_API_BASE || "http://localhost:3000";
+        const modal = document.querySelector("[data-booking-modal]");
+        const openButtons = document.querySelectorAll("[data-book-session-trigger]");
+        const closeButton = document.querySelector("[data-booking-close]");
+        const form = document.querySelector("[data-booking-form]");
+        const statusEl = document.querySelector("[data-booking-status]");
+        const submitButton = document.querySelector("[data-booking-submit]");
+
+        if (!modal || !form || !statusEl || !submitButton || !openButtons.length) return;
+
+        const openModal = function () {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        };
+
+        const closeModal = function () {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            statusEl.textContent = "";
+        };
+
+        openButtons.forEach((button) => button.addEventListener("click", openModal));
+        if (closeButton) closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) closeModal();
+        });
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            statusEl.textContent = "Sending booking request...";
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+            const payload = {
+                name: String(formData.get("name") || "").trim(),
+                email: String(formData.get("email") || "").trim(),
+                phone: String(formData.get("phone") || "").trim(),
+                date: String(formData.get("date") || "").trim(),
+                serviceType: String(formData.get("serviceType") || "").trim(),
+                message: String(formData.get("message") || "").trim(),
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/bookings`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Failed to create booking.");
+                form.reset();
+                statusEl.textContent = "Booking submitted successfully. We will contact you soon.";
+                setTimeout(closeModal, 1200);
+            } catch (error) {
+                statusEl.textContent = error.message || "Something went wrong. Please try again.";
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
+    })();
+
+    (function () {
+        const API_BASE = window.CHHAYA_API_BASE || "http://localhost:3000";
+        const form = document.querySelector("[data-newsletter-form]");
+        const statusEl = document.querySelector("[data-newsletter-status]");
+        if (!form || !statusEl) return;
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            statusEl.textContent = "Submitting...";
+
+            const formData = new FormData(form);
+            const payload = { email: String(formData.get("email") || "").trim() };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/newsletter`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Unable to subscribe right now.");
+                form.reset();
+                statusEl.textContent = result.message || "Subscribed successfully.";
+            } catch (error) {
+                statusEl.textContent = error.message || "Something went wrong. Please try again.";
+            }
+        });
+    })();
+
+    (function () {
+        const revealItems = document.querySelectorAll(".reveal");
+        if (!revealItems.length) return;
+
+        const observer = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+
+        revealItems.forEach(function (item) {
+            observer.observe(item);
+        });
+    })();
+</script>
+
+<script>
+    // Smooth Page Transitions & Scroll Animations
+    document.addEventListener('DOMContentLoaded', () => {
+        // Trigger initial page load transition
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 50);
+
+        // Scroll Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        };
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    // Slight stagger for elements revealing at the same time
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, idx * 100); 
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Intercept navigation links for exit transitions
+        document.querySelectorAll('a[href$=".html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.target === '_blank' || this.hasAttribute('download')) return;
+                
+                // only intercept if it's changing pages inside the app
+                const targetUrl = this.href;
+                const currentUrl = window.location.href;
+                if(targetUrl !== currentUrl) {
+                    e.preventDefault();
+                    document.body.classList.remove('loaded');
+                    document.body.classList.add('page-transitioning');
+                    
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 400); // Wait for transition out
+                }
+            });
+        });
+    });
+</script>
+</body></html>
